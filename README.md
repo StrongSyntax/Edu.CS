@@ -6,7 +6,9 @@ This has been tested on Python 3.11.6
 this requires a few libraries, to install them, type this into your command prompt:
 
 pip install matplotlib
+
 pip install wordcloud
+
 pip install panda
 
 (this requires tkinter, but tkinter comes with every Python install. if you receive a module error from tkinter, run "pip install tkinter" .)
