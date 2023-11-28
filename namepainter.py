@@ -88,8 +88,9 @@ class NameFlasher:
         return (correct_pixels / total_pixels) * 100 if total_pixels != 0 else 100  # Prevent division by zero
 
 if __name__ == "__main__":
+    imageInput = input("Insert The Path To Your Desired Image: ")
     root = tk.Tk()
-    flasher = NameFlasher(root, "C:\\Users\\DMone\\OneDrive\\Desktop\\All naming project\\python data tools i made\\input.txt", "C:\\Users\\DMone\\OneDrive\\Desktop\\All naming project\\python data tools i made\\image(1).png", speed=350)
+    flasher = NameFlasher(root, "C:\\Users\\DMone\\OneDrive\\Desktop\\All naming project\\python data tools i made\\input.txt", imageInput, speed=350)
 
     while True:
         flasher.create_names()
