@@ -1,18 +1,28 @@
-# KAHSVisualizer
-A few tools to aid in the visualization of every attendee in the school's 61-year history.
+# Kate Andrews High School Repository
+This is a repo containing every programming tool/project I have done for school.
 
-This has been tested on Python 3.11.6
+> Recently Added A Climatograph Visualizer To View The Effects Of Climate Change.
 
-this requires a few libraries, to install them, type this into your command prompt:
+Most, (if not all), of these tools are written in python.
 
-pip install matplotlib
+Here are the required libraries:
 
-pip install wordcloud
+```
+matplotlib
 
-pip install panda
+wordcloud
 
-(this requires tkinter, but tkinter comes with every Python install. if you receive a module error from tkinter, run "pip install tkinter" .)
+panda
 
-(when prompted for the text files path, just drag and drop the input.txt onto the program, and press enter)
+tkinter
 
-have fun!
+json
+```
+
+# Documentation:
+
+## Naming Project Visualizer
+
+## Climatograph Visualizer
+
+Enjoy ;)
