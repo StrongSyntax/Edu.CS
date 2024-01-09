@@ -17,6 +17,10 @@ panda
 tkinter
 
 json
+
+argparse
+
+numpy
 ```
 
 # Documentation:
