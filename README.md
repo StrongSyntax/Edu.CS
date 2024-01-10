@@ -27,6 +27,10 @@ numpy
 
 ## Naming Project Visualizer
 
+I'll redo this later.
+
 ## Climatograph Visualizer
+
+Won't likely be used by anyone, but one day I'll get around to writing this.
 
 Enjoy ;)
