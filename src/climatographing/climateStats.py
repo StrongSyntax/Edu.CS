@@ -18,6 +18,35 @@ def aggregate_yearly_data(data, year):
         yearly_data[key] = sum(yearly_data[key]) / len(yearly_data[key]) if yearly_data[key] else None
     return yearly_data
 
+def plot_climograph(data_year1, data_year2, year1, year2):
+    # Assume data_year1 and data_year2 are dictionaries with months as keys and dict of parameters as values
+    months = [f"{str(month).zfill(2)}" for month in range(1, 13)]
+    temp_1 = [data_year1.get(f"{year1}-{month}", {}).get('OverallAverageTemperature', 0) for month in months]
+    temp_2 = [data_year2.get(f"{year2}-{month}", {}).get('OverallAverageTemperature', 0) for month in months]
+    precip_1 = [data_year1.get(f"{year1}-{month}", {}).get('AveragePrecipitation', 0) for month in months]
+    precip_2 = [data_year2.get(f"{year2}-{month}", {}).get('AveragePrecipitation', 0) for month in months]
+
+    fig, ax1 = plt.subplots()
+
+    ax1.set_xlabel('Month')
+    ax1.set_ylabel('Temperature (°C)', color='tab:red')
+    ax1.plot(months, temp_1, color='tab:red', label=f'{year1} Temperature')
+    ax1.plot(months, temp_2, color='tab:blue', label=f'{year2} Temperature', linestyle='--')
+    ax1.tick_params(axis='y', labelcolor='tab:red')
+
+    ax2 = ax1.twinx()
+    ax2.set_ylabel('Precipitation (mm)', color='tab:green')
+    ax2.bar(months, precip_1, alpha=0.5, color='tab:green', label=f'{year1} Precipitation')
+    ax2.bar(months, precip_2, alpha=0.5, color='tab:olive', label=f'{year2} Precipitation', width=0.4)
+    ax2.tick_params(axis='y', labelcolor='tab:green')
+
+    lines, labels = ax1.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax2.legend(lines + lines2, labels + labels2, loc='upper left')
+
+    plt.title('Climograph Comparison')
+    plt.show()
+
 def compare_data(data, year1, year2):
     data_year1 = aggregate_yearly_data(data, year1)
     data_year2 = aggregate_yearly_data(data, year2)
@@ -36,25 +65,7 @@ def compare_data(data, year1, year2):
     # Print statistics
     print(f"Difference in Average Max Temperature between {year1} and {year2}: {diff_avg_max_temp}°C")
 
-    # Plotting the data
-    categories = list(data_year1.keys())
-    values_year1 = list(data_year1.values())
-    values_year2 = list(data_year2.values())
-
-    bar_width = 0.35
-    index = np.arange(len(categories))
-
-    plt.bar(index, values_year1, bar_width, label=year1)
-    plt.bar(index + bar_width, values_year2, bar_width, label=year2)
-
-    plt.xlabel('Climate Parameters')
-    plt.ylabel('Values')
-    plt.title(f'Climate Comparison between {year1} and {year2}')
-    plt.xticks(index + bar_width / 2, categories)
-    plt.legend()
-
-    plt.tight_layout()
-    plt.show()
+    plot_climograph(data_year1, data_year2, year1, year2)
 
     # Proceed with comparison as before...
 

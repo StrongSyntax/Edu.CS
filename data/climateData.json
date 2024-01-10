@@ -15,6 +15,87 @@
       "AverageRelativeHumidity": 78,
       "AverageWindSpeed": 6
     },
+    "2024-03": {
+      "AverageMaxTemperature": 10,
+      "AverageMinTemperature": 4,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
+    "2024-04": {
+      "AverageMaxTemperature": 10,
+      "AverageMinTemperature": 4,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
+    "2024-05": {
+      "AverageMaxTemperature": 10,
+      "AverageMinTemperature": 4,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
+    "2024-06": {
+      "AverageMaxTemperature": 10,
+      "AverageMinTemperature": 4,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
+    "2024-07": {
+      "AverageMaxTemperature": 30,
+      "AverageMinTemperature": 15,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
+    "2024-08": {
+      "AverageMaxTemperature": 10,
+      "AverageMinTemperature": 4,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
+    "2024-09": {
+      "AverageMaxTemperature": 10,
+      "AverageMinTemperature": 4,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
+
+    "2024-10": {
+      "AverageMaxTemperature": 10,
+      "AverageMinTemperature": 4,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
+    "2024-11": {
+      "AverageMaxTemperature": 10,
+      "AverageMinTemperature": 4,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
+    "2024-12": {
+      "AverageMaxTemperature": 10,
+      "AverageMinTemperature": 4,
+      "OverallAverageTemperature": 7,
+      "AveragePrecipitation": 8,
+      "AverageRelativeHumidity": 78,
+      "AverageWindSpeed": 6
+    },
     "1960-01": {
         "AverageMaxTemperature": 10,
         "AverageMinTemperature": 4,
@@ -32,6 +113,78 @@
         "AverageWindSpeed": 6
       },
       "1960-03": {
+        "AverageMaxTemperature": 10,
+        "AverageMinTemperature": 4,
+        "OverallAverageTemperature": 7,
+        "AveragePrecipitation": 8,
+        "AverageRelativeHumidity": 78,
+        "AverageWindSpeed": 6
+      },
+      "1960-04": {
+        "AverageMaxTemperature": 10,
+        "AverageMinTemperature": 4,
+        "OverallAverageTemperature": 7,
+        "AveragePrecipitation": 8,
+        "AverageRelativeHumidity": 78,
+        "AverageWindSpeed": 6
+      },
+      "1960-05": {
+        "AverageMaxTemperature": 10,
+        "AverageMinTemperature": 4,
+        "OverallAverageTemperature": 7,
+        "AveragePrecipitation": 8,
+        "AverageRelativeHumidity": 78,
+        "AverageWindSpeed": 6
+      },
+      "1960-06": {
+        "AverageMaxTemperature": 10,
+        "AverageMinTemperature": 4,
+        "OverallAverageTemperature": 7,
+        "AveragePrecipitation": 8,
+        "AverageRelativeHumidity": 78,
+        "AverageWindSpeed": 6
+      },
+      "1960-07": {
+        "AverageMaxTemperature": 10,
+        "AverageMinTemperature": 4,
+        "OverallAverageTemperature": 7,
+        "AveragePrecipitation": 8,
+        "AverageRelativeHumidity": 78,
+        "AverageWindSpeed": 6
+      },
+      "1960-08": {
+        "AverageMaxTemperature": 10,
+        "AverageMinTemperature": 4,
+        "OverallAverageTemperature": 7,
+        "AveragePrecipitation": 8,
+        "AverageRelativeHumidity": 78,
+        "AverageWindSpeed": 6
+      },
+      "1960-09": {
+        "AverageMaxTemperature": 10,
+        "AverageMinTemperature": 4,
+        "OverallAverageTemperature": 7,
+        "AveragePrecipitation": 8,
+        "AverageRelativeHumidity": 78,
+        "AverageWindSpeed": 6
+      },
+      "1960-10": {
+        "AverageMaxTemperature": 10,
+        "AverageMinTemperature": 4,
+        "OverallAverageTemperature": 7,
+        "AveragePrecipitation": 8,
+        "AverageRelativeHumidity": 78,
+        "AverageWindSpeed": 6
+      },
+      "1960-11": {
+        "AverageMaxTemperature": 10,
+        "AverageMinTemperature": 4,
+        "OverallAverageTemperature": 7,
+        "AveragePrecipitation": 8,
+        "AverageRelativeHumidity": 78,
+        "AverageWindSpeed": 6
+      },
+      "1960-12": {
         "AverageMaxTemperature": 10,
         "AverageMinTemperature": 4,
         "OverallAverageTemperature": 7,
