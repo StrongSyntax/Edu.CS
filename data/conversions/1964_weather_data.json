@@ -1,0 +1,68 @@
+{
+    "1964-02": {
+        "AverageMaxTemperature": 2.7275862068965515,
+        "AverageMinTemperature": -6.896551724137931,
+        "AveragePrecipitation": 0.037586206896551726,
+        "AverageSnowfall": 0.4344827586206897
+    },
+    "1964-03": {
+        "AverageMaxTemperature": -2.561290322580645,
+        "AverageMinTemperature": -14.374193548387092,
+        "AveragePrecipitation": 0.034516129032258064,
+        "AverageSnowfall": 0.46774193548387094
+    },
+    "1964-04": {
+        "AverageMaxTemperature": 10.759999999999998,
+        "AverageMinTemperature": -1.1766666666666667,
+        "AveragePrecipitation": 0.06366666666666668,
+        "AverageSnowfall": 0.19333333333333333
+    },
+    "1964-05": {
+        "AverageMaxTemperature": 16.56129032258064,
+        "AverageMinTemperature": 5.441935483870968,
+        "AveragePrecipitation": 0.17612903225806453,
+        "AverageSnowfall": 0.0
+    },
+    "1964-06": {
+        "AverageMaxTemperature": 20.899999999999995,
+        "AverageMinTemperature": 9.769999999999998,
+        "AveragePrecipitation": 0.08833333333333335,
+        "AverageSnowfall": 0.0
+    },
+    "1964-07": {
+        "AverageMaxTemperature": 23.967741935483872,
+        "AverageMinTemperature": 12.454838709677416,
+        "AveragePrecipitation": 0.24322580645161287,
+        "AverageSnowfall": 0.0
+    },
+    "1964-08": {
+        "AverageMaxTemperature": 20.383870967741938,
+        "AverageMinTemperature": 9.890322580645163,
+        "AveragePrecipitation": 0.22870967741935483,
+        "AverageSnowfall": 0.0
+    },
+    "1964-09": {
+        "AverageMaxTemperature": 13.413333333333332,
+        "AverageMinTemperature": 3.616666666666666,
+        "AveragePrecipitation": 0.21666666666666667,
+        "AverageSnowfall": 0.03666666666666667
+    },
+    "1964-10": {
+        "AverageMaxTemperature": 13.709677419354836,
+        "AverageMinTemperature": 1.6870967741935488,
+        "AveragePrecipitation": 0.020322580645161285,
+        "AverageSnowfall": 0.0
+    },
+    "1964-11": {
+        "AverageMaxTemperature": -2.0166666666666666,
+        "AverageMinTemperature": -9.530000000000001,
+        "AveragePrecipitation": 0.12366666666666666,
+        "AverageSnowfall": 1.723333333333333
+    },
+    "1964-12": {
+        "AverageMaxTemperature": -16.048387096774192,
+        "AverageMinTemperature": -22.93548387096774,
+        "AveragePrecipitation": 0.059032258064516126,
+        "AverageSnowfall": 0.864516129032258
+    }
+}

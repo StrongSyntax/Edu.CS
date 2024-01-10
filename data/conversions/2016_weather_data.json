@@ -1,0 +1,74 @@
+{
+    "2016-01": {
+        "AverageMaxTemperature": 0,
+        "AverageMinTemperature": 0,
+        "AveragePrecipitation": 0,
+        "AverageSnowfall": 0
+    },
+    "2016-02": {
+        "AverageMaxTemperature": 0,
+        "AverageMinTemperature": 0,
+        "AveragePrecipitation": 0,
+        "AverageSnowfall": 0
+    },
+    "2016-03": {
+        "AverageMaxTemperature": 0,
+        "AverageMinTemperature": 0,
+        "AveragePrecipitation": 0,
+        "AverageSnowfall": 0
+    },
+    "2016-04": {
+        "AverageMaxTemperature": 16.6,
+        "AverageMinTemperature": 1.06,
+        "AveragePrecipitation": 0.018,
+        "AverageSnowfall": 0.0
+    },
+    "2016-05": {
+        "AverageMaxTemperature": 19.393103448275863,
+        "AverageMinTemperature": 2.5620689655172413,
+        "AveragePrecipitation": 0.26586206896551723,
+        "AverageSnowfall": 0.0
+    },
+    "2016-06": {
+        "AverageMaxTemperature": 22.616666666666667,
+        "AverageMinTemperature": 7.943333333333333,
+        "AveragePrecipitation": 0.265,
+        "AverageSnowfall": 0.0
+    },
+    "2016-07": {
+        "AverageMaxTemperature": 23.338709677419356,
+        "AverageMinTemperature": 9.916129032258066,
+        "AveragePrecipitation": 0.334516129032258,
+        "AverageSnowfall": 0.0
+    },
+    "2016-08": {
+        "AverageMaxTemperature": 22.648387096774183,
+        "AverageMinTemperature": 8.029032258064516,
+        "AveragePrecipitation": 0.23903225806451617,
+        "AverageSnowfall": 0.0
+    },
+    "2016-09": {
+        "AverageMaxTemperature": 17.25,
+        "AverageMinTemperature": 2.2399999999999998,
+        "AveragePrecipitation": 0.09199999999999996,
+        "AverageSnowfall": 0.0
+    },
+    "2016-10": {
+        "AverageMaxTemperature": 5.377419354838708,
+        "AverageMinTemperature": -2.712903225806452,
+        "AveragePrecipitation": 0.15709677419354837,
+        "AverageSnowfall": 0.0
+    },
+    "2016-11": {
+        "AverageMaxTemperature": 4.6966666666666645,
+        "AverageMinTemperature": -4.540000000000001,
+        "AveragePrecipitation": 0.10799999999999997,
+        "AverageSnowfall": 0.0
+    },
+    "2016-12": {
+        "AverageMaxTemperature": -6.553571428571429,
+        "AverageMinTemperature": -18.06428571428571,
+        "AveragePrecipitation": 0.11571428571428569,
+        "AverageSnowfall": 0.0
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "2015-01": {
+        "AverageMaxTemperature": -3.543333333333334,
+        "AverageMinTemperature": -14.726666666666667,
+        "AveragePrecipitation": 0.03933333333333334,
+        "AverageSnowfall": 0.0
+    },
+    "2015-02": {
+        "AverageMaxTemperature": -4.5857142857142845,
+        "AverageMinTemperature": -16.09642857142857,
+        "AveragePrecipitation": 0.04142857142857143,
+        "AverageSnowfall": 0.0
+    },
+    "2015-03": {
+        "AverageMaxTemperature": 5.336666666666668,
+        "AverageMinTemperature": -6.799999999999999,
+        "AveragePrecipitation": 0.064,
+        "AverageSnowfall": 0.0
+    },
+    "2015-04": {
+        "AverageMaxTemperature": 12.82,
+        "AverageMinTemperature": -4.763333333333332,
+        "AveragePrecipitation": 0.019666666666666666,
+        "AverageSnowfall": 0.0
+    },
+    "2015-05": {
+        "AverageMaxTemperature": 18.190322580645162,
+        "AverageMinTemperature": 0.4161290322580646,
+        "AveragePrecipitation": 0.03580645161290323,
+        "AverageSnowfall": 0.0
+    },
+    "2015-06": {
+        "AverageMaxTemperature": 23.636,
+        "AverageMinTemperature": 6.824,
+        "AveragePrecipitation": 0.005600000000000001,
+        "AverageSnowfall": 0.0
+    },
+    "2015-07": {
+        "AverageMaxTemperature": 0,
+        "AverageMinTemperature": 0,
+        "AveragePrecipitation": 0,
+        "AverageSnowfall": 0
+    },
+    "2015-08": {
+        "AverageMaxTemperature": 0,
+        "AverageMinTemperature": 0,
+        "AveragePrecipitation": 0,
+        "AverageSnowfall": 0
+    },
+    "2015-09": {
+        "AverageMaxTemperature": 0,
+        "AverageMinTemperature": 0,
+        "AveragePrecipitation": 0,
+        "AverageSnowfall": 0
+    },
+    "2015-10": {
+        "AverageMaxTemperature": 0,
+        "AverageMinTemperature": 0,
+        "AveragePrecipitation": 0,
+        "AverageSnowfall": 0
+    },
+    "2015-11": {
+        "AverageMaxTemperature": 0,
+        "AverageMinTemperature": 0,
+        "AveragePrecipitation": 0,
+        "AverageSnowfall": 0
+    },
+    "2015-12": {
+        "AverageMaxTemperature": 0,
+        "AverageMinTemperature": 0,
+        "AveragePrecipitation": 0,
+        "AverageSnowfall": 0
+    }
+}

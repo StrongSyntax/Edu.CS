@@ -1,0 +1,74 @@
+{
+    "2017-01": {
+        "AverageMaxTemperature": -4.716129032258066,
+        "AverageMinTemperature": -15.387096774193546,
+        "AveragePrecipitation": 0.09064516129032256,
+        "AverageSnowfall": 0.0
+    },
+    "2017-02": {
+        "AverageMaxTemperature": -2.9240000000000004,
+        "AverageMinTemperature": -13.515999999999996,
+        "AveragePrecipitation": 0.08839999999999999,
+        "AverageSnowfall": 0.0
+    },
+    "2017-03": {
+        "AverageMaxTemperature": 0.055555555555555095,
+        "AverageMinTemperature": -10.466666666666667,
+        "AveragePrecipitation": 0.07851851851851853,
+        "AverageSnowfall": 0.0
+    },
+    "2017-04": {
+        "AverageMaxTemperature": 7.133333333333332,
+        "AverageMinTemperature": -2.1966666666666668,
+        "AveragePrecipitation": 0.1913333333333334,
+        "AverageSnowfall": 0.0
+    },
+    "2017-05": {
+        "AverageMaxTemperature": 20.432258064516127,
+        "AverageMinTemperature": 3.5129032258064514,
+        "AveragePrecipitation": 0.21419354838709678,
+        "AverageSnowfall": 0.0
+    },
+    "2017-06": {
+        "AverageMaxTemperature": 21.682758620689658,
+        "AverageMinTemperature": 8.313793103448276,
+        "AveragePrecipitation": 0.1713793103448276,
+        "AverageSnowfall": 0.0
+    },
+    "2017-07": {
+        "AverageMaxTemperature": 23.87096774193548,
+        "AverageMinTemperature": 8.735483870967741,
+        "AveragePrecipitation": 0.26419354838709674,
+        "AverageSnowfall": 0.0
+    },
+    "2017-08": {
+        "AverageMaxTemperature": 23.051612903225806,
+        "AverageMinTemperature": 7.1967741935483875,
+        "AveragePrecipitation": 0.11193548387096773,
+        "AverageSnowfall": 0.0
+    },
+    "2017-09": {
+        "AverageMaxTemperature": 18.25,
+        "AverageMinTemperature": 3.4466666666666668,
+        "AveragePrecipitation": 0.20166666666666666,
+        "AverageSnowfall": 0.0
+    },
+    "2017-10": {
+        "AverageMaxTemperature": 11.038709677419357,
+        "AverageMinTemperature": -3.548387096774194,
+        "AveragePrecipitation": 0.07806451612903227,
+        "AverageSnowfall": 0.0
+    },
+    "2017-11": {
+        "AverageMaxTemperature": -3.9586206896551723,
+        "AverageMinTemperature": -14.989655172413793,
+        "AveragePrecipitation": 0.1620689655172414,
+        "AverageSnowfall": 0.0
+    },
+    "2017-12": {
+        "AverageMaxTemperature": -4.317241379310344,
+        "AverageMinTemperature": -14.444827586206896,
+        "AveragePrecipitation": 0.1106896551724138,
+        "AverageSnowfall": 0.0
+    }
+}

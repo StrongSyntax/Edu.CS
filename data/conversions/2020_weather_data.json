@@ -1,0 +1,74 @@
+{
+    "2020-01": {
+        "AverageMaxTemperature": -9.325806451612902,
+        "AverageMinTemperature": -20.96129032258065,
+        "AveragePrecipitation": 0.04838709677419355,
+        "AverageSnowfall": 0.0
+    },
+    "2020-02": {
+        "AverageMaxTemperature": -1.8999999999999997,
+        "AverageMinTemperature": -16.45,
+        "AveragePrecipitation": 0.05535714285714287,
+        "AverageSnowfall": 0.0
+    },
+    "2020-03": {
+        "AverageMaxTemperature": -1.5999999999999999,
+        "AverageMinTemperature": -15.245161290322583,
+        "AveragePrecipitation": 0.038064516129032264,
+        "AverageSnowfall": 0.0
+    },
+    "2020-04": {
+        "AverageMaxTemperature": 7.08,
+        "AverageMinTemperature": -6.696666666666667,
+        "AveragePrecipitation": 0.007,
+        "AverageSnowfall": 0.0
+    },
+    "2020-05": {
+        "AverageMaxTemperature": 16.866666666666674,
+        "AverageMinTemperature": 2.583333333333334,
+        "AveragePrecipitation": 0.299,
+        "AverageSnowfall": 0.0
+    },
+    "2020-06": {
+        "AverageMaxTemperature": 20.470000000000002,
+        "AverageMinTemperature": 7.846666666666667,
+        "AveragePrecipitation": 0.3453333333333333,
+        "AverageSnowfall": 0.0
+    },
+    "2020-07": {
+        "AverageMaxTemperature": 22.90967741935484,
+        "AverageMinTemperature": 9.941935483870969,
+        "AveragePrecipitation": 0.26064516129032256,
+        "AverageSnowfall": 0.0
+    },
+    "2020-08": {
+        "AverageMaxTemperature": 22.903225806451612,
+        "AverageMinTemperature": 7.432258064516129,
+        "AveragePrecipitation": 0.19387096774193543,
+        "AverageSnowfall": 0.0
+    },
+    "2020-09": {
+        "AverageMaxTemperature": 18.63333333333333,
+        "AverageMinTemperature": 3.750000000000001,
+        "AveragePrecipitation": 0.024,
+        "AverageSnowfall": 0.0
+    },
+    "2020-10": {
+        "AverageMaxTemperature": 6.625806451612903,
+        "AverageMinTemperature": -4.880645161290322,
+        "AveragePrecipitation": 0.025161290322580653,
+        "AverageSnowfall": 0.0
+    },
+    "2020-11": {
+        "AverageMaxTemperature": -2.148,
+        "AverageMinTemperature": -14.02,
+        "AveragePrecipitation": 0.08879999999999999,
+        "AverageSnowfall": 0.0
+    },
+    "2020-12": {
+        "AverageMaxTemperature": -1.0225806451612902,
+        "AverageMinTemperature": -12.551612903225807,
+        "AveragePrecipitation": 0.008064516129032258,
+        "AverageSnowfall": 0.0
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "2018-01": {
+        "AverageMaxTemperature": -4.876923076923077,
+        "AverageMinTemperature": -15.742307692307689,
+        "AveragePrecipitation": 0.06999999999999999,
+        "AverageSnowfall": 0.0
+    },
+    "2018-02": {
+        "AverageMaxTemperature": -8.053846153846157,
+        "AverageMinTemperature": -22.873076923076926,
+        "AveragePrecipitation": 0.13230769230769227,
+        "AverageSnowfall": 0.0
+    },
+    "2018-03": {
+        "AverageMaxTemperature": -1.0741935483870966,
+        "AverageMinTemperature": -14.012903225806454,
+        "AveragePrecipitation": 0.11580645161290322,
+        "AverageSnowfall": 0.0
+    },
+    "2018-04": {
+        "AverageMaxTemperature": 7.185185185185185,
+        "AverageMinTemperature": -5.95185185185185,
+        "AveragePrecipitation": 0.14333333333333334,
+        "AverageSnowfall": 0.0
+    },
+    "2018-05": {
+        "AverageMaxTemperature": 21.93225806451613,
+        "AverageMinTemperature": 5.17741935483871,
+        "AveragePrecipitation": 0.12064516129032256,
+        "AverageSnowfall": 0.0
+    },
+    "2018-06": {
+        "AverageMaxTemperature": 22.43793103448276,
+        "AverageMinTemperature": 6.731034482758622,
+        "AveragePrecipitation": 0.21862068965517248,
+        "AverageSnowfall": 0.0
+    },
+    "2018-07": {
+        "AverageMaxTemperature": 23.893548387096768,
+        "AverageMinTemperature": 8.44516129032258,
+        "AveragePrecipitation": 0.21419354838709678,
+        "AverageSnowfall": 0.0
+    },
+    "2018-08": {
+        "AverageMaxTemperature": 22.287096774193547,
+        "AverageMinTemperature": 7.145161290322581,
+        "AveragePrecipitation": 0.21806451612903224,
+        "AverageSnowfall": 0.0
+    },
+    "2018-09": {
+        "AverageMaxTemperature": 10.663333333333334,
+        "AverageMinTemperature": 0.31333333333333335,
+        "AveragePrecipitation": 0.24033333333333334,
+        "AverageSnowfall": 0.0
+    },
+    "2018-10": {
+        "AverageMaxTemperature": 9.870967741935482,
+        "AverageMinTemperature": -4.416129032258064,
+        "AveragePrecipitation": 0.06999999999999999,
+        "AverageSnowfall": 0.0
+    },
+    "2018-11": {
+        "AverageMaxTemperature": 1.1133333333333333,
+        "AverageMinTemperature": -8.183333333333335,
+        "AveragePrecipitation": 0.10133333333333333,
+        "AverageSnowfall": 0.0
+    },
+    "2018-12": {
+        "AverageMaxTemperature": -3.051612903225807,
+        "AverageMinTemperature": -14.896774193548385,
+        "AveragePrecipitation": 0.13354838709677422,
+        "AverageSnowfall": 0.0
+    }
+}

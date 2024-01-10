@@ -1,64 +1,77 @@
-# The provided data seems to be daily weather data for the month of January.
-# The columns appear to represent:
-# - Daily Maximum Temperature (°C)
-# - Daily Minimum Temperature (°C)
-# - Precipitation (mm)
-# - Snowfall (cm)
+import json
+import re
 
-# Here's the raw data provided
-raw_data = """
--11.1 -13.9 0.00 0.0
--11.1 -19.4 0.13 1.3
--10.6 -28.9 0.05 0.5
--2.2 -23.3 0.03 0.3
-4.4 -19.4 0.00 0.0
-2.8 -1.7 0.00 0.0
--1.7 -10.0 0.00 0.0
--10.6 -16.1 0.00 0.0
--10.0 -20.0 0.00 0.0
--5.6 -13.9 0.00 0.0
--3.3 -16.1 0.00 0.0
--10.6 -20.0 0.00 0.0
--7.8 -19.4 0.00 0.0
--7.8 -15.6 0.00 0.0
-1.7 -16.1 0.00 0.0
--10.0 -18.3 0.15 1.5
--11.7 -15.0 0.15 1.5
--17.2 -22.2 0.00 0.0
--8.9 -25.6 0.00 0.0
--9.4 -13.3 0.03 0.3
--16.7 -23.3 0.00 0.0
--17.8 -24.4 0.00 0.0
--16.1 -28.3 0.00 0.0
--12.8 -21.7 0.00 0.0
--16.7 -20.0 0.00 0.0
--13.9 -22.8 0.00 0.0
--15.0 -21.1 0.13 1.3
--8.9 -18.3 0.00 0.0
-0.6 -15.6 0.00 0.0
-5.6 -8.3 0.00 0.0
-3.9 -6.1 0.00 0.0
-"""
+def parse_weather_data(raw_data):
+    # Regular expression to identify month headers
+    month_header_regex = r"(\w+) (\d{4}) Edmonton Weather"
+    # Mapping of month names to their numeric equivalents
+    month_mapping = {"January": "01", "February": "02", "March": "03", "April": "04",
+                     "May": "05", "June": "06", "July": "07", "August": "08",
+                     "September": "09", "October": "10", "November": "11", "December": "12"}
 
-# Parse the raw data into a structured format (list of lists)
-data = []
-for line in raw_data.strip().split('\n'):
-    if line.strip():  # Check if line is not empty
-        data.append(list(map(float, line.split())))
+    # Splitting the raw data by month headers
+    months_data = re.split(month_header_regex, raw_data)[1:]
 
-# Now calculate the average for each column
-avg_data = [sum(col) / len(col) for col in zip(*data)]
+    # Processing data for each month
+    results = {}
+    for i in range(0, len(months_data), 3):
+        month_name, year, data = months_data[i], months_data[i + 1], months_data[i + 2]
+        month = month_mapping.get(month_name, "00")
+        results[f"{year}-{month}"] = process_month_data(data)
 
-year = input("Enter the year, followed by the month. (YYYY-MM)")
+    return results
 
-# Convert this average data into the JSON format used previously
-json_data = {
-    year: {
+def process_month_data(data):
+    month_data = []
+    for line in data.split('\n'):
+        values = line.split()
+        # Check if the line contains numeric data and has at least 3 values (High, Low, Precipitation)
+        if values and all(v.replace('.', '', 1).replace('-', '', 1).isdigit() for v in values[-3:]):
+            # If snowfall data is missing, add a default value (e.g., 0.0)
+            if len(values) < 4:
+                values.append("0.0")
+            month_data.append([float(v) for v in values[-4:]])
+
+    if not month_data:
+        return {"AverageMaxTemperature": 0, "AverageMinTemperature": 0, "AveragePrecipitation": 0, "AverageSnowfall": 0}
+
+    avg_data = [sum(col) / len(col) for col in zip(*month_data)]
+    return {
         "AverageMaxTemperature": avg_data[0],
         "AverageMinTemperature": avg_data[1],
         "AveragePrecipitation": avg_data[2],
         "AverageSnowfall": avg_data[3]
     }
-}
 
-json_data
+
+def save_to_json(yearly_data, directory_path):
+    # Extract year from the first entry
+    first_year = next(iter(yearly_data)).split('-')[0]
+    # Construct the file name
+    file_name = f'{first_year}_weather_data.json'
+    full_path = f'{directory_path}\\{file_name}'
+    
+    with open(full_path, 'w') as file:
+        json.dump(yearly_data, file, indent=4)
+    return full_path
+
+# Main execution
+if __name__ == "__main__":
+    raw_data = """January 2024 Edmonton Weather
+Day 	High (°C) 	Low (°C) 	Precip. (cm)
+January 1
+	2.2 	-10.5 	0.00
+January 2
+	-1.3 	-15.2 	0.00
+January 3
+	-5.9 	-11.5 	0.00
+January 4
+	-5.7 	-12.5 	0.04
+January 5
+	-2.8 	-14.5 	0.00
+January 6
+	-7.1 	-15.3 	0.00"""
+    directory_path = input("Enter the directory path where you want to save the file: ")
+    yearly_data = parse_weather_data(raw_data)
+    output_file_path = save_to_json(yearly_data, directory_path)
+    print(f"Data saved to {output_file_path}")

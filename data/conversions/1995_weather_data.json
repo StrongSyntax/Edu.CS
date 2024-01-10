@@ -1,0 +1,74 @@
+{
+    "1995-01": {
+        "AverageMaxTemperature": -6.293548387096772,
+        "AverageMinTemperature": -14.496774193548392,
+        "AveragePrecipitation": 0.06225806451612904,
+        "AverageSnowfall": 0.5741935483870968
+    },
+    "1995-02": {
+        "AverageMaxTemperature": -3.4571428571428577,
+        "AverageMinTemperature": -13.1,
+        "AveragePrecipitation": 0.03892857142857143,
+        "AverageSnowfall": 0.27499999999999997
+    },
+    "1995-03": {
+        "AverageMaxTemperature": 2.2645161290322577,
+        "AverageMinTemperature": -8.183870967741937,
+        "AveragePrecipitation": 0.01967741935483871,
+        "AverageSnowfall": 0.1774193548387097
+    },
+    "1995-04": {
+        "AverageMaxTemperature": 9.583333333333332,
+        "AverageMinTemperature": -1.8066666666666669,
+        "AveragePrecipitation": 0.05866666666666667,
+        "AverageSnowfall": 0.20000000000000004
+    },
+    "1995-05": {
+        "AverageMaxTemperature": 18.42258064516129,
+        "AverageMinTemperature": 4.7935483870967746,
+        "AveragePrecipitation": 0.05838709677419355,
+        "AverageSnowfall": 0.0
+    },
+    "1995-06": {
+        "AverageMaxTemperature": 22.10333333333334,
+        "AverageMinTemperature": 11.126666666666667,
+        "AveragePrecipitation": 0.132,
+        "AverageSnowfall": 0.0
+    },
+    "1995-07": {
+        "AverageMaxTemperature": 22.32903225806452,
+        "AverageMinTemperature": 12.087096774193544,
+        "AveragePrecipitation": 0.24451612903225806,
+        "AverageSnowfall": 0.0
+    },
+    "1995-08": {
+        "AverageMaxTemperature": 18.693548387096776,
+        "AverageMinTemperature": 8.9,
+        "AveragePrecipitation": 0.26580645161290317,
+        "AverageSnowfall": 0.0
+    },
+    "1995-09": {
+        "AverageMaxTemperature": 19.733333333333334,
+        "AverageMinTemperature": 5.8533333333333335,
+        "AveragePrecipitation": 0.009,
+        "AverageSnowfall": 0.0
+    },
+    "1995-10": {
+        "AverageMaxTemperature": 9.906451612903224,
+        "AverageMinTemperature": 0.18387096774193545,
+        "AveragePrecipitation": 0.03580645161290323,
+        "AverageSnowfall": 0.0903225806451613
+    },
+    "1995-11": {
+        "AverageMaxTemperature": -3.7633333333333336,
+        "AverageMinTemperature": -10.823333333333332,
+        "AveragePrecipitation": 0.16533333333333333,
+        "AverageSnowfall": 1.843333333333333
+    },
+    "1995-12": {
+        "AverageMaxTemperature": -9.506666666666668,
+        "AverageMinTemperature": -16.986666666666665,
+        "AveragePrecipitation": 0.05633333333333334,
+        "AverageSnowfall": 0.5966666666666668
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "2021-01": {
+        "AverageMaxTemperature": -3.951612903225807,
+        "AverageMinTemperature": -14.435483870967742,
+        "AveragePrecipitation": 0.00870967741935484,
+        "AverageSnowfall": 0.0
+    },
+    "2021-02": {
+        "AverageMaxTemperature": -10.921428571428573,
+        "AverageMinTemperature": -22.642857142857142,
+        "AveragePrecipitation": 0.018214285714285718,
+        "AverageSnowfall": 0.0
+    },
+    "2021-03": {
+        "AverageMaxTemperature": 7.208333333333333,
+        "AverageMinTemperature": -5.579166666666667,
+        "AveragePrecipitation": 0.009583333333333334,
+        "AverageSnowfall": 0.0
+    },
+    "2021-04": {
+        "AverageMaxTemperature": 12.161904761904761,
+        "AverageMinTemperature": -4.995238095238095,
+        "AveragePrecipitation": 0.04476190476190477,
+        "AverageSnowfall": 0.0
+    },
+    "2021-05": {
+        "AverageMaxTemperature": 16.55263157894737,
+        "AverageMinTemperature": 3.7578947368421054,
+        "AveragePrecipitation": 0.43105263157894735,
+        "AverageSnowfall": 0.0
+    },
+    "2021-06": {
+        "AverageMaxTemperature": 24.490000000000002,
+        "AverageMinTemperature": 9.415,
+        "AveragePrecipitation": 0.0675,
+        "AverageSnowfall": 0.0
+    },
+    "2021-07": {
+        "AverageMaxTemperature": 25.191666666666663,
+        "AverageMinTemperature": 10.541666666666668,
+        "AveragePrecipitation": 0.18458333333333335,
+        "AverageSnowfall": 0.0
+    },
+    "2021-08": {
+        "AverageMaxTemperature": 22.470000000000006,
+        "AverageMinTemperature": 8.110000000000001,
+        "AveragePrecipitation": 0.22649999999999998,
+        "AverageSnowfall": 0.0
+    },
+    "2021-09": {
+        "AverageMaxTemperature": 19.505263157894735,
+        "AverageMinTemperature": 2.9631578947368418,
+        "AveragePrecipitation": 0.10157894736842103,
+        "AverageSnowfall": 0.0
+    },
+    "2021-10": {
+        "AverageMaxTemperature": 12.661111111111108,
+        "AverageMinTemperature": -3.7833333333333337,
+        "AveragePrecipitation": 0.11222222222222222,
+        "AverageSnowfall": 0.0
+    },
+    "2021-11": {
+        "AverageMaxTemperature": 2.9499999999999997,
+        "AverageMinTemperature": -10.088461538461539,
+        "AveragePrecipitation": 0.025,
+        "AverageSnowfall": 0.0
+    },
+    "2021-12": {
+        "AverageMaxTemperature": -11.60967741935484,
+        "AverageMinTemperature": -22.18064516129032,
+        "AveragePrecipitation": 0.07870967741935483,
+        "AverageSnowfall": 0.0
+    }
+}
