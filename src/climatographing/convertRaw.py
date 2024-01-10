@@ -57,20 +57,7 @@ def save_to_json(yearly_data, directory_path):
 
 # Main execution
 if __name__ == "__main__":
-    raw_data = """January 2024 Edmonton Weather
-Day 	High (°C) 	Low (°C) 	Precip. (cm)
-January 1
-	2.2 	-10.5 	0.00
-January 2
-	-1.3 	-15.2 	0.00
-January 3
-	-5.9 	-11.5 	0.00
-January 4
-	-5.7 	-12.5 	0.04
-January 5
-	-2.8 	-14.5 	0.00
-January 6
-	-7.1 	-15.3 	0.00"""
+    raw_data = """"""
     directory_path = input("Enter the directory path where you want to save the file: ")
     yearly_data = parse_weather_data(raw_data)
     output_file_path = save_to_json(yearly_data, directory_path)
