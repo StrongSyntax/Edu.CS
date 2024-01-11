@@ -5,46 +5,39 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax for your preferred size */
+    gap: 15px; /* This adds space between the entries */
     padding: 20px;
-    max-width: 1200px;
-    margin: auto;
+    justify-items: center;
 }
 
 .grid-item {
-    background-color: #424242;
-    border: 2px solid #0066ff;
-    padding: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Each entry will fill the column width */
+    height: 250px; /* Adjust height for your preferred size */
+    background-size: cover;
+    background-position: center;
     transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%); /* Start with greyscale */
+    text-decoration: none;
+    color: white; /* Text color */
+    font-size: 20px; /* Text size */
+    border: 2px solid transparent; /* Adjust border as needed */
     overflow: hidden;
-    background-size: cover; /* Ensure background image covers the whole item */
-    background-position: center; /* Center the background image */
-    filter: grayscale(100%); /* Grey out the image */
 }
 
 .grid-item:hover {
     transform: scale(1.5); /* Scale up on hover */
-    filter: grayscale(0%); /* Remove grey filter */
-    cursor: pointer;
+    filter: grayscale(0%); /* Saturate on hover */
+    border-color: #0066ff; /* Change border color on hover */
+    z-index: 1; /* Ensure the scaling item is above the others */
 }
 
+/* This ensures the text is centered within the grid item, 
+   especially when scaled */
 .grid-item p {
-    color: white; /* Ensure text is readable on dark background */
-    z-index: 1; /* Make sure text is above the background */
-    position: relative; /* Needed for z-index to work */
-}
-
-.grid-item-link {
-    text-decoration: none;
-    color: inherit;
-    display: block; /* Make the whole area clickable */
-}
-
-.project-image {
-    width: 100%; /* Make image fill the container */
-    height: auto; /* Maintain aspect ratio */
-    border-bottom: 1px solid #ddd; /* Optional: add a border or other styles */
-    margin-bottom: 10px; /* Space between image and text */
+    text-align: center;
+    width: 100%;
 }
