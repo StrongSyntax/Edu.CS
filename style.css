@@ -48,3 +48,29 @@ body {
     bottom: 10px; /* Position text at the bottom of the grid item */
     left: 0;
 }
+
+.about-me {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px; /* Add space above the about section */
+}
+
+.question-mark {
+    font-size: 50px; /* Large size for the question mark */
+    line-height: 50px; /* Align the line height to the font size */
+    height: 50px; /* Set a fixed height for the container */
+    width: 50px; /* Set a fixed width for the container */
+    border-radius: 50%; /* Make it circular */
+    background-color: #0066ff; /* Set a background color */
+    color: white; /* Set the color of the question mark */
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin: 20px 0; /* Add some vertical space around the question mark */
+}
+
+/* When hovering over the question mark, you might want to change its color */
+.question-mark:hover {
+    background-color: #0044cc;
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+}
