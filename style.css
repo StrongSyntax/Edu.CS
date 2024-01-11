@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(42, 42, 42);
+    background-color: rgb(255, 255, 255);
 }
 
 .grid-container {
@@ -18,6 +18,7 @@ body {
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease;
+    overflow: hidden; /* Ensures no content spills out */
 }
 
 .grid-item:hover {
@@ -29,4 +30,15 @@ body {
     text-decoration: none; /* Removes underline from links */
     color: inherit; /* Inherits text color from parent */
     /* Add other styles as necessary to match the look of other grid items */
+}
+
+.project-image {
+    width: 100%; /* Make image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-bottom: 1px solid #ddd; /* Optional: add a border or other styles */
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+.grid-item p {
+    margin: 0; /* Adjust text spacing as needed */
 }

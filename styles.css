@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
-    background-color: #464646;
+    background-color: #000000;
 }
 
 svg {
@@ -14,14 +14,14 @@ svg {
 }
 
 .links line {
-    stroke: #391800;      /* Line color */
+    stroke: #ffffff;      /* Line color */
     stroke-opacity: 0.6;
     stroke-width: 2px; /* Line thickness */
 }
 
 .tooltip {
     background-color: rgb(49, 49, 49);
-    border: 1px solid #0048ff;
+    border: 1px solid #ffffff;
     border-radius: 5px;
     padding: 10px;
     color: black;
