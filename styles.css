@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
-    background-color: #010009;
+    background-color: #464646;
 }
 
 svg {
@@ -14,7 +14,7 @@ svg {
 }
 
 .links line {
-    stroke: #ff6a00;      /* Line color */
+    stroke: #391800;      /* Line color */
     stroke-opacity: 0.6;
     stroke-width: 2px; /* Line thickness */
 }
