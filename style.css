@@ -23,3 +23,9 @@ body {
     transform: scale(1.1);
     cursor: pointer;
 }
+
+.grid-item-link {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits text color from parent */
+    /* Add other styles as necessary to match the look of other grid items */
+}
