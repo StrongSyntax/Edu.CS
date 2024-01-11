@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%; /* Full viewport width */
     height: 100vh; /* Full viewport height */
+    background-color: #010009;
 }
 
 svg {
