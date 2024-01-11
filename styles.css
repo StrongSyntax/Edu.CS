@@ -2,20 +2,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%vh;
+    width: 100%; /* Full viewport width */
     height: 100vh; /* Full viewport height */
 }
 
 svg {
     display: block; /* Removes any extra space at the bottom */
-    max-width: 100%;
-    height: auto; /* Maintains the aspect ratio */
+    max-width: 80%; /* Adjust as needed */
+    height: auto; /* May need to adjust based on your aspect ratio */
 }
+
 .links line {
     stroke: #999;      /* Line color */
     stroke-opacity: 0.6;
     stroke-width: 2px; /* Line thickness */
 }
+
 .tooltip {
     background-color: white;
     border: 1px solid #ddd;
@@ -24,5 +26,7 @@ svg {
     color: black;
     text-align: left;
     font-size: 14px;
+    position: absolute; /* Ensure tooltip is positioned absolutely */
+    visibility: hidden; /* Initially hidden */
+    pointer-events: none; /* Ignore pointer events */
 }
-
