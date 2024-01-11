@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var width = 960, height = 600;
+  var width = 960, height = 600;
 
-    var svg = d3.select("#sociogram").append("svg")
-        .attr("width", width)
-        .attr("height", height);
+  var svg = d3.select("#sociogram").append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+  // Append a group element to SVG for zooming
+  var g = svg.append("g");
 
     var data = {
         "CharacterDevelopment": {
@@ -132,8 +135,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .force("charge", d3.forceManyBody().strength(-300))
         .force("center", d3.forceCenter(width / 2, height / 2));
 
-    // Create links (lines)
-    var link = svg.append("g")
+    // Create links (lines) inside the group 'g'
+    var link = g.append("g")
         .attr("class", "links")
         .selectAll("line")
         .data(links)
@@ -141,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .attr("stroke", "#999")
         .attr("stroke-opacity", 0.6);
 
-    // Create nodes (images)
-    var node = svg.append("g")
+    // Create nodes (images) inside the group 'g'
+    var node = g.append("g")
         .attr("class", "nodes")
         .selectAll("g")
         .data(nodes)
@@ -156,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .attr("height", 32)
         .on("error", function() { d3.select(this).remove(); });
 
-    // Add hover text for nodes
     node.append("title")
         .text(d => d.id);
 
@@ -170,16 +172,14 @@ document.addEventListener('DOMContentLoaded', function() {
         node.attr("transform", d => `translate(${d.x}, ${d.y})`);
     });
 
-// Zoom and pan functionality
-var zoom = d3.zoom()
-    .scaleExtent([0.1, 10])  // Set the scale limits for zooming
-    .on('zoom', (event) => {
-        svg.attr('transform', event.transform);
-    });
+    // Zoom and pan functionality
+    var zoom = d3.zoom()
+        .scaleExtent([0.1, 10])  // Set the scale limits for zooming
+        .on('zoom', (event) => {
+            g.attr('transform', event.transform);  // Apply zoom transform to group 'g'
+        });
 
-// Apply zoom behavior to the SVG element
-svg.call(zoom)
-    .on("dblclick.zoom", null);  // Disable double-click zoom if desired
+    svg.call(zoom).on("dblclick.zoom", null);
 
     // Function to handle key down events
 function handleKeyDown(event) {
