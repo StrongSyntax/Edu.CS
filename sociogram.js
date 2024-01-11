@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var nodes = data.Sociogram.people.map(function(d) { 
         return {
             id: d.name, 
-            img: 'assets/images/' + d.name + '.png'
+            img: 'assets/images/' + d.name.replace(/\s/g, '') + '.png'
         }; 
     });
 
