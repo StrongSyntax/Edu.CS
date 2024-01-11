@@ -1,7 +1,12 @@
 // Assuming D3.js is already included in your HTML
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Your JSON data
+    var width = 960, height = 600;
+
+    var svg = d3.select("#sociogram").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
     var data = {
         "CharacterDevelopment": {
             "MainCharacters": {
@@ -119,84 +124,43 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
+var nodes = data.Sociogram.people.map(function(d) { return {id: d.name}; });
+    var links = data.Sociogram.important_interactions.map(function(d) { return {source: d.between[0], target: d.between[1], description: d.description}; });
 
-    // Width and height for the SVG container
-    var width = 960,
-        height = 600;
-
-    // Append SVG to the body for the graph
-    var svg = d3.select("body").append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    // Process data to fit D3.js requirements
-    var nodes = data.people.map(function(person) {
-        return { id: person.name };
-    });
-
-    var links = data.important_interactions.map(function(interaction) {
-        return {
-            source: interaction.between[0],
-            target: interaction.between[1]
-        };
-    });
-
-    // Initialize simulation
     var simulation = d3.forceSimulation(nodes)
-        .force("link", d3.forceLink(links).id(d => d.id))
+        .force("link", d3.forceLink(links).id(function(d) { return d.id; }))
         .force("charge", d3.forceManyBody())
         .force("center", d3.forceCenter(width / 2, height / 2));
 
-    // Draw lines for links (interactions)
     var link = svg.append("g")
-        .attr("class", "links")
         .selectAll("line")
         .data(links)
-        .enter().append("line");
+        .join("line");
 
-    // Draw circles for nodes (people)
     var node = svg.append("g")
-        .attr("class", "nodes")
         .selectAll("circle")
         .data(nodes)
-        .enter().append("circle")
+        .join("circle")
         .attr("r", 5);
 
-    // Drag functionality for nodes
-    node.call(d3.drag()
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended));
-
-    // Update positions each tick
-    simulation.on("tick", function() {
+    simulation.on("tick", () => {
         link
-            .attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
 
         node
-            .attr("cx", function(d) { return d.x; })
-            .attr("cy", function(d) { return d.y; });
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y);
     });
 
-    // Drag functions
-    function dragstarted(d) {
-        if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-    }
+    // Hover effect for nodes
+    node.append("title")
+        .text(function(d) { return d.id; });
 
-    function dragged(d) {
-        d.fx = d3.event.x;
-        d.fy = d3.event.y;
-    }
-
-    function dragended(d) {
-        if (!d3.event.active) simulation.alphaTarget(0);
-        d.fx = null;
-        d.fy = null;
-    }
+    // Hover effect for links
+    link.append("title")
+        .text(function(d) { return d.description; });
 });
 
