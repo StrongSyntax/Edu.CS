@@ -17,19 +17,29 @@ body {
     border: 2px solid #0066ff;
     padding: 20px;
     text-align: center;
-    transition: transform 0.3s ease;
-    overflow: hidden; /* Ensures no content spills out */
+    transition: transform 0.3s ease, filter 0.3s ease;
+    overflow: hidden;
+    background-size: cover; /* Ensure background image covers the whole item */
+    background-position: center; /* Center the background image */
+    filter: grayscale(100%); /* Grey out the image */
 }
 
 .grid-item:hover {
-    transform: scale(1.1);
+    transform: scale(1.5); /* Scale up on hover */
+    filter: grayscale(0%); /* Remove grey filter */
     cursor: pointer;
 }
 
+.grid-item p {
+    color: white; /* Ensure text is readable on dark background */
+    z-index: 1; /* Make sure text is above the background */
+    position: relative; /* Needed for z-index to work */
+}
+
 .grid-item-link {
-    text-decoration: none; /* Removes underline from links */
-    color: inherit; /* Inherits text color from parent */
-    /* Add other styles as necessary to match the look of other grid items */
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Make the whole area clickable */
 }
 
 .project-image {
@@ -37,8 +47,4 @@ body {
     height: auto; /* Maintain aspect ratio */
     border-bottom: 1px solid #ddd; /* Optional: add a border or other styles */
     margin-bottom: 10px; /* Space between image and text */
-}
-
-.grid-item p {
-    margin: 0; /* Adjust text spacing as needed */
 }
