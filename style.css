@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: darkslategrey;
+    background-color: rgb(33, 33, 33);
 }
 
 .grid-container {
@@ -13,8 +13,8 @@ body {
 }
 
 .grid-item {
-    background-color: #f0f0f0;
-    border: 1px solid #000000;
+    background-color: #4f4f4f;
+    border: 2px solid #0066ff;
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease;
