@@ -172,6 +172,30 @@ document.addEventListener('DOMContentLoaded', function() {
         node.attr("transform", d => `translate(${d.x}, ${d.y})`);
     });
 
+        // Select the tooltip element
+        var tooltip = d3.select("#tooltip");
+
+        // Function to show tooltip
+        function showTooltip(d) {
+            tooltip.style("visibility", "visible")
+                   .html("Name: " + d.id + "<br/>Additional Info: " + d.additionalInfo)
+                   .style("top", (d3.event.pageY - 10) + "px")
+                   .style("left", (d3.event.pageX + 10) + "px");
+        }
+    
+        // Function to hide tooltip
+        function hideTooltip() {
+            tooltip.style("visibility", "hidden");
+        }
+    
+        // Add tooltip functionality to nodes
+        node.on("mouseover", showTooltip)
+            .on("mouseout", hideTooltip);
+    
+        // Add tooltip functionality to links (if needed)
+        link.on("mouseover", showTooltip)
+            .on("mouseout", hideTooltip);
+
     // Zoom and pan functionality
     var zoom = d3.zoom()
         .scaleExtent([0.1, 10])  // Set the scale limits for zooming
@@ -220,6 +244,15 @@ function handleKeyDown(event) {
 
 // Add event listener for keydown
 document.addEventListener('keydown', handleKeyDown);
+
+window.addEventListener('resize', function() {
+  var newWidth = window.innerWidth * 0.8;
+  var newHeight = window.innerHeight;
+
+  d3.select("#sociogram svg")
+      .attr("width", newWidth)
+      .attr("height", newHeight);
+  });
 
     // Add tooltip functionality (if needed)
     // ...
