@@ -9,30 +9,34 @@ body {
     gap: 15px; /* This adds space between the entries */
     padding: 20px;
     justify-items: center;
+    transition: gap 0.3s ease;
 }
 
 .grid-item {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Needed for absolute positioning of children */
     width: 100%; /* Each entry will fill the column width */
     height: 250px; /* Adjust height for your preferred size */
     background-size: cover;
     background-position: center;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: filter 0.3s ease, box-shadow 0.3s ease;
     filter: grayscale(100%); /* Start with greyscale */
     text-decoration: none;
     color: white; /* Text color */
     font-size: 20px; /* Text size */
     border: 2px solid transparent; /* Adjust border as needed */
     overflow: hidden;
+    /* Added box-shadow for better visibility on scale */
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
 }
 
 .grid-item:hover {
-    transform: scale(1.5); /* Scale up on hover */
     filter: grayscale(0%); /* Saturate on hover */
     border-color: #0066ff; /* Change border color on hover */
-    z-index: 1; /* Ensure the scaling item is above the others */
+    z-index: 2; /* Ensure the scaling item is above the others */
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5); /* Shadow for lifted effect */
 }
 
 /* This ensures the text is centered within the grid item, 
@@ -40,4 +44,7 @@ body {
 .grid-item p {
     text-align: center;
     width: 100%;
+    position: absolute; /* Position text over the image */
+    bottom: 10px; /* Position text at the bottom of the grid item */
+    left: 0;
 }
