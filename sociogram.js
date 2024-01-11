@@ -122,63 +122,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    var nodes = data.Sociogram.people.map(function(d) { 
-        return {
-            id: d.name, 
-            img: 'assets/images/' + d.name.replace(/\s/g, '') + '.png'  // Adjust the path as needed
-        }; 
-    });
+    // Process nodes and links
+    var nodes = data.Sociogram.people.map(d => ({ id: d.name, img: 'assets/images/' + d.name.replace(/\s/g, '') + '.png' }));
+    var links = data.Sociogram.people.flatMap(d => d.connections.map(link => ({ source: d.name, target: link.name })));
 
-    var links = data.Sociogram.people.flatMap(d => 
-        d.connections.map(link => ({ source: d.name, target: link.name }))
-    );    
-
-        // Select the tooltip div
-    var tooltip = d3.select("#tooltip");
-
-    // Node mouseover event
-    node.on("mouseover", function(d) {
-        tooltip.style("visibility", "visible")
-               .html("Name: " + d.id + "<br/>" + "Additional Info Here");
-    });
-
-    // Link mouseover event
-    link.on("mouseover", function(d) {
-        tooltip.style("visibility", "visible")
-               .html("Connection: " + d.source.id + " to " + d.target.id + "<br/>Details: " + d.details);
-    });
-
-    // Mousemove event to update tooltip position
-    node.on("mousemove", function() {
-        tooltip.style("top", (d3.event.pageY - 10) + "px")
-               .style("left", (d3.event.pageX + 10) + "px");
-    });
-    link.on("mousemove", function() {
-        tooltip.style("top", (d3.event.pageY - 10) + "px")
-               .style("left", (d3.event.pageX + 10) + "px");
-    });
-
-    // Mouseout event to hide tooltip
-    node.on("mouseout", function() { tooltip.style("visibility", "hidden"); });
-    link.on("mouseout", function() { tooltip.style("visibility", "hidden"); });
-
+    // Define the force simulation
     var simulation = d3.forceSimulation(nodes)
-    .force("link", d3.forceLink(links).id(d => d.id).distance(100))
-    .force("charge", d3.forceManyBody().strength(-300))
-    .force("center", d3.forceCenter(width / 2, height / 2));
+        .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width / 2, height / 2));
 
-
+    // Create links (lines)
     var link = svg.append("g")
-    .attr("class", "links")
-    .selectAll("line")
-    .data(links)
-    .enter().append("line")
-    .attr("stroke", "#999")
-    .attr("stroke-opacity", 0.6);
+        .attr("class", "links")
+        .selectAll("line")
+        .data(links)
+        .enter().append("line")
+        .attr("stroke", "#999")
+        .attr("stroke-opacity", 0.6);
 
-    
-
-    // Create the nodes (images)
+    // Create nodes (images)
     var node = svg.append("g")
         .attr("class", "nodes")
         .selectAll("g")
@@ -186,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .enter().append("g");
 
     node.append("image")
-        .attr("xlink:href", function(d) { return d.img; })
+        .attr("xlink:href", d => d.img)
         .attr("x", -16)
         .attr("y", -16)
         .attr("width", 32)
@@ -195,17 +158,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add hover text for nodes
     node.append("title")
-        .text(function(d) { return d.id; });
+        .text(d => d.id);
 
-    // Update the positions each tick
-    simulation.on("tick", function() {
-        link
-            .attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
+    // Update positions on each tick of the simulation
+    simulation.on("tick", () => {
+        link.attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
 
-        node
-            .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+        node.attr("transform", d => `translate(${d.x}, ${d.y})`);
     });
+
+    // Add tooltip functionality (if needed)
+    // ...
 });
