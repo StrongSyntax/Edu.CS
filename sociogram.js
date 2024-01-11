@@ -170,6 +170,57 @@ document.addEventListener('DOMContentLoaded', function() {
         node.attr("transform", d => `translate(${d.x}, ${d.y})`);
     });
 
+// Zoom and pan functionality
+var zoom = d3.zoom()
+    .scaleExtent([0.1, 10])  // Set the scale limits for zooming
+    .on('zoom', (event) => {
+        svg.attr('transform', event.transform);
+    });
+
+// Apply zoom behavior to the SVG element
+svg.call(zoom)
+    .on("dblclick.zoom", null);  // Disable double-click zoom if desired
+
+    // Function to handle key down events
+function handleKeyDown(event) {
+  var scale = d3.zoomTransform(svg.node()).k;
+  var dx = 0, dy = 0, dz = 0;
+
+  switch(event.key) {
+      case 'ArrowUp':
+      case 'w':
+          dy = -50;  // Adjust step size as needed
+          break;
+      case 'ArrowDown':
+      case 's':
+          dy = 50;
+          break;
+      case 'ArrowLeft':
+      case 'a':
+          dx = -50;
+          break;
+      case 'ArrowRight':
+      case 'd':
+          dx = 50;
+          break;
+      case '+':
+          dz = 0.1;
+          break;
+      case '-':
+          dz = -0.1;
+          break;
+  }
+
+  // Apply translation or scaling based on key pressed
+  svg.transition()
+      .duration(100)
+      .call(zoom.translateBy, dx / scale, dy / scale)
+      .call(zoom.scaleBy, 1 + dz);
+}
+
+// Add event listener for keydown
+document.addEventListener('keydown', handleKeyDown);
+
     // Add tooltip functionality (if needed)
     // ...
 });
