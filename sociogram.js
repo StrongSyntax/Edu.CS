@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var nodes = data.Sociogram.people.map(function(d) { 
         return {
             id: d.name, 
-            img: '/assets/images/' + d.name + '.png' // Assumes you have images named after the people
+            img: 'assets/images/' + d.name + '.png' // Assumes you have images named after the people
         }; 
     });
 
