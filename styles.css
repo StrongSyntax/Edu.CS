@@ -4,3 +4,8 @@
     border: 1px solid #ccc;
     position: relative;
 }
+.links line {
+    stroke: #999;      /* Line color */
+    stroke-opacity: 0.6;
+    stroke-width: 2px; /* Line thickness */
+}
