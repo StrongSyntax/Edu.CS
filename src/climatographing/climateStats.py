@@ -51,8 +51,41 @@ def plot_climograph(data, year1, year2):
 
 
 def compare_data(data, year1, year2):
-    print("Aggregated Data:", data)  # Add this line for debugging
+    print("Aggregated Data:", data)  # Debugging print
     plot_climograph(data, year1, year2)
+
+    # Calculate statistics
+    temp_1 = [data.get(f"{year1}-{month}", {}).get('AverageMaxTemperature', 0) for month in range(1, 13)]
+    temp_2 = [data.get(f"{year2}-{month}", {}).get('AverageMaxTemperature', 0) for month in range(1, 13)]
+    precip_1 = [data.get(f"{year1}-{month}", {}).get('AveragePrecipitation', 0) for month in range(1, 13)]
+    precip_2 = [data.get(f"{year2}-{month}", {}).get('AveragePrecipitation', 0) for month in range(1, 13)]
+
+    # Calculate statistics
+    temp_1_avg = sum(temp_1) / len(temp_1)
+    temp_2_avg = sum(temp_2) / len(temp_2)
+    precip_1_avg = sum(precip_1) / len(precip_1)
+    precip_2_avg = sum(precip_2) / len(precip_2)
+
+    temp_1_max = max(temp_1)
+    temp_2_max = max(temp_2)
+    precip_1_max = max(precip_1)
+    precip_2_max = max(precip_2)
+
+    temp_1_min = min(temp_1)
+    temp_2_min = min(temp_2)
+    precip_1_min = min(precip_1)
+    precip_2_min = min(precip_2)
+
+    # Export statistics to a text file
+    with open(f'statistics_{year1}_vs_{year2}.txt', 'w') as stats_file:
+        stats_file.write(f'Statistics for {year1} vs. {year2}:\n')
+        stats_file.write(f'{"":<20} {year1:<10} {year2:<10}\n')
+        stats_file.write(f'Temperature (Avg): {"":<10} {temp_1_avg:<10.2f} {temp_2_avg:<10.2f}\n')
+        stats_file.write(f'Temperature (Max): {"":<10} {temp_1_max:<10.2f} {temp_2_max:<10.2f}\n')
+        stats_file.write(f'Temperature (Min): {"":<10} {temp_1_min:<10.2f} {temp_2_min:<10.2f}\n')
+        stats_file.write(f'Precipitation (Avg): {"":<10} {precip_1_avg:<10.2f} {precip_2_avg:<10.2f}\n')
+        stats_file.write(f'Precipitation (Max): {"":<10} {precip_1_max:<10.2f} {precip_2_max:<10.2f}\n')
+        stats_file.write(f'Precipitation (Min): {"":<10} {precip_1_min:<10.2f} {precip_2_min:<10.2f}\n')
 
 def load_and_aggregate_data_from_folder(folder_path, years_of_interest):
     aggregated_data = {}

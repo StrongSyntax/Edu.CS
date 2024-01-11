@@ -1,0 +1,8 @@
+Statistics for 1962 vs. 2023:
+                     1962       2023      
+Temperature (Avg):            1.21       1.61      
+Temperature (Max):            13.26      11.23     
+Temperature (Min):            -2.78      0.00      
+Precipitation (Avg):            0.01       0.00      
+Precipitation (Max):            0.07       0.01      
+Precipitation (Min):            0.00       0.00      

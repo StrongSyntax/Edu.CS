@@ -1,0 +1,8 @@
+Statistics for 1960 vs. 2020:
+                     1960       2020      
+Temperature (Avg):            0.71       0.29      
+Temperature (Max):            11.47      6.63      
+Temperature (Min):            -2.40      -2.15     
+Precipitation (Avg):            0.02       0.01      
+Precipitation (Max):            0.14       0.09      
+Precipitation (Min):            0.00       0.00      

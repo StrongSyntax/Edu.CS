@@ -1,0 +1,8 @@
+Statistics for 1980 vs. 1990:
+                     1980       1990      
+Temperature (Avg):            0.69       -0.12     
+Temperature (Max):            12.93      8.59      
+Temperature (Min):            -9.81      -8.09     
+Precipitation (Avg):            0.02       0.02      
+Precipitation (Max):            0.18       0.10      
+Precipitation (Min):            0.00       0.00      
