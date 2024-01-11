@@ -131,20 +131,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var links = data.Sociogram.people.flatMap(d => 
         d.connections.map(link => ({ source: d.name, target: link.name }))
-    );
+    );    
 
     var simulation = d3.forceSimulation(nodes)
-        .force("link", d3.forceLink(links).id(d => d.id).distance(100))
-        .force("charge", d3.forceManyBody().strength(-300))
-        .force("center", d3.forceCenter(width / 2, height / 2));
+    .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+    .force("charge", d3.forceManyBody().strength(-300))
+    .force("center", d3.forceCenter(width / 2, height / 2));
 
-        var link = svg.append("g")
-        .attr("class", "links")
-        .selectAll("line")
-        .data(links)
-        .enter().append("line")
-        .attr("stroke", "#999")
-        .attr("stroke-opacity", 0.6);
+
+    var link = svg.append("g")
+    .attr("class", "links")
+    .selectAll("line")
+    .data(links)
+    .enter().append("line")
+    .attr("stroke", "#999")
+    .attr("stroke-opacity", 0.6);
+
     
 
     // Create the nodes (images)
