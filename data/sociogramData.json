@@ -1,0 +1,122 @@
+{
+
+
+    ],
+
+  }
+
+  {
+    "CharacterDevelopment": {
+      "MainCharacters": {
+        "AndrewNeiman": "Starts as ambitious and naive, becomes more obsessive and resilient.",
+        "TerenceFletcher": "Remains consistently harsh, but shows depth and eventual respect for Andrew's talent."
+      },
+      "SupportingCharacters": {
+        "Nicole": "Represents Andrew's personal sacrifices for his music career."
+      }
+    },
+    "Genre": {
+      "MainGenre": "Drama - Focus on personal and moral conflicts of a young musician.",
+      "SubGenre": "Music - Revolves around a music conservatory and jazz drumming."
+    },
+    "ColorSelection": "Dark and muted palette with red highlights symbolizing power, passion, and danger, reflecting the film's intense atmosphere.",
+    "Sound": {
+      "Diegetic": "Drumming - Central to the film's theme, representing Andrew's journey and struggle.",
+      "NonDiegetic": "Jazz Soundtrack - Sets the tone and mood, enhancing the emotional context."
+    },
+    "FilmTechniques": [
+      // Specific techniques and scenes can be listed here
+    ],
+    "SymbolsAndImages": [
+      {"type": "Shot", "name": "Close-Up Shots"},
+      {"type": "Transition", "name": "Match Cuts"},
+      {"type": "Sound", "name": "Digetic"}
+    ],
+    "MainMessage": "The pursuit of greatness and the sacrifices it demands; explores the limits of mentorship and ambition.",
+    "Sociogram": {
+        "people": [
+            {
+              "name": "Andrew Neiman",
+              "connections": [
+                {"name": "Terence Fletcher", "strength": 9, "details": "Student-Teacher Relationship"},
+                {"name": "Nicole", "strength": 4, "details": "Romantic Interest"},
+                {"name": "Jim Neiman", "strength": 6, "details": "Father"},
+                {"name": "Sean Casey", "strength": 3, "details": "Role Model"}
+              ]
+            },
+            {
+              "name": "Terence Fletcher",
+              "connections": [
+                {"name": "Andrew Neiman", "strength": 9, "details": "Teacher-Student Relationship"},
+                {"name": "Ryan Connolly", "strength": 5, "details": "Student"},
+                {"name": "Carl Tanner", "strength": 5, "details": "Student"},
+                {"name": "Sean Casey", "strength": 4, "details": "Former Student"}
+              ]
+            },
+            {
+              "name": "Nicole",
+              "connections": [
+                {"name": "Andrew Neiman", "strength": 4, "details": "Romantic Interest"}
+              ]
+            },
+            {
+              "name": "Jim Neiman",
+              "connections": [
+                {"name": "Andrew Neiman", "strength": 6, "details": "Son"}
+              ]
+            },
+            {
+              "name": "Ryan Connolly",
+              "connections": [
+                {"name": "Terence Fletcher", "strength": 5, "details": "Student"},
+                {"name": "Carl Tanner", "strength": 3, "details": "Fellow Student"}
+              ]
+            },
+            {
+              "name": "Carl Tanner",
+              "connections": [
+                {"name": "Terence Fletcher", "strength": 5, "details": "Student"},
+                {"name": "Ryan Connolly", "strength": 3, "details": "Fellow Student"}
+              ]
+            },
+            {
+              "name": "Sean Casey",
+              "connections": [
+                {"name": "Terence Fletcher", "strength": 4, "details": "Former Student"},
+                {"name": "Andrew Neiman", "strength": 3, "details": "Admirer"}
+              ]
+            }
+          ],
+      "important_interactions": [
+        {
+          "between": ["Terence Fletcher", "Carl Tanner"],
+          "description": "Fletcher berates Carl for being out of tune, demonstrating his harsh teaching style."
+        },
+        {
+          "between": ["Andrew Neiman", "Carl Tanner"],
+          "description": "Andrew replaces Carl as the core drummer, escalating the competitive atmosphere."
+        },
+        {
+          "between": ["Andrew Neiman", "Terence Fletcher"],
+          "description": "Fletcher tells Andrew he knows about his father's failed writing career, challenging Andrew's motivations."
+        },
+        {
+          "between": ["Andrew Neiman", "Nicole"],
+          "description": "Andrew breaks up with Nicole to focus on his career, highlighting his sacrifice for music."
+        },
+        {
+          "between": ["Andrew Neiman", "Terence Fletcher"],
+          "description": "Andrew confronts Fletcher in a bar, where Fletcher explains his philosophy of pushing students beyond their limits."
+        },
+        {
+          "between": ["Terence Fletcher", "Studio Band"],
+          "description": "Fletcher's emotional story about a former student, revealing a softer side to his character."
+        },
+        {
+          "between": ["Andrew Neiman", "Terence Fletcher"],
+          "description": "The scene where Andrew returns to the stage after being sabotaged by Fletcher, showing his resilience and determination."
+        }
+      ]
+    }
+  }
+  
