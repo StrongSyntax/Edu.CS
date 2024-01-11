@@ -122,28 +122,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    var links = data.Sociogram.people.flatMap(d => 
-        d.connections.map(link => ({ source: d.name, target: link.name }))
-    );
-
     var nodes = data.Sociogram.people.map(function(d) { 
         return {
             id: d.name, 
-            img: 'assets/images/' + d.name.replace(/\s/g, '') + '.png'
+            img: 'assets/images/' + d.name.replace(/\s/g, '') + '.png'  // Adjust the path as needed
         }; 
     });
+
+    var links = data.Sociogram.people.flatMap(d => 
+        d.connections.map(link => ({ source: d.name, target: link.name }))
+    );
 
     var simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).distance(100))
         .force("charge", d3.forceManyBody().strength(-300))
         .force("center", d3.forceCenter(width / 2, height / 2));
 
-    var link = svg.append("g")
+        var link = svg.append("g")
         .attr("class", "links")
         .selectAll("line")
         .data(links)
-        .enter().append("line");
+        .enter().append("line")
+        .attr("stroke", "#999")
+        .attr("stroke-opacity", 0.6);
+    
 
+    // Create the nodes (images)
     var node = svg.append("g")
         .attr("class", "nodes")
         .selectAll("g")
@@ -156,11 +160,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .attr("y", -16)
         .attr("width", 32)
         .attr("height", 32)
-        .on("error", function() { d3.select(this).remove(); });  // Remove image if not found
+        .on("error", function() { d3.select(this).remove(); });
 
+    // Add hover text for nodes
     node.append("title")
         .text(function(d) { return d.id; });
 
+    // Update the positions each tick
     simulation.on("tick", function() {
         link
             .attr("x1", function(d) { return d.source.x; })
