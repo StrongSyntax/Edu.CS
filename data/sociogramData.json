@@ -1,11 +1,4 @@
 {
-
-
-    ],
-
-  }
-
-  {
     "CharacterDevelopment": {
       "MainCharacters": {
         "AndrewNeiman": "Starts as ambitious and naive, becomes more obsessive and resilient.",
@@ -25,12 +18,14 @@
       "NonDiegetic": "Jazz Soundtrack - Sets the tone and mood, enhancing the emotional context."
     },
     "FilmTechniques": [
-      // Specific techniques and scenes can be listed here
+        {"type": "Shot", "name": "Close-Up Shots"},
+        {"type": "Transition", "name": "Match Cuts"},
+        {"type": "Sound", "name": "Digetic"}
     ],
     "SymbolsAndImages": [
-      {"type": "Shot", "name": "Close-Up Shots"},
-      {"type": "Transition", "name": "Match Cuts"},
-      {"type": "Sound", "name": "Digetic"}
+        {"type": "Object", "name": "Drum Sticks"},
+        {"type": "Example", "name": "Example"},
+        {"type": "Example", "name": "Example"}
     ],
     "MainMessage": "The pursuit of greatness and the sacrifices it demands; explores the limits of mentorship and ambition.",
     "Sociogram": {
@@ -118,5 +113,5 @@
         }
       ]
     }
-  }
+}
   
