@@ -133,6 +133,35 @@ document.addEventListener('DOMContentLoaded', function() {
         d.connections.map(link => ({ source: d.name, target: link.name }))
     );    
 
+        // Select the tooltip div
+    var tooltip = d3.select("#tooltip");
+
+    // Node mouseover event
+    node.on("mouseover", function(d) {
+        tooltip.style("visibility", "visible")
+               .html("Name: " + d.id + "<br/>" + "Additional Info Here");
+    });
+
+    // Link mouseover event
+    link.on("mouseover", function(d) {
+        tooltip.style("visibility", "visible")
+               .html("Connection: " + d.source.id + " to " + d.target.id + "<br/>Details: " + d.details);
+    });
+
+    // Mousemove event to update tooltip position
+    node.on("mousemove", function() {
+        tooltip.style("top", (d3.event.pageY - 10) + "px")
+               .style("left", (d3.event.pageX + 10) + "px");
+    });
+    link.on("mousemove", function() {
+        tooltip.style("top", (d3.event.pageY - 10) + "px")
+               .style("left", (d3.event.pageX + 10) + "px");
+    });
+
+    // Mouseout event to hide tooltip
+    node.on("mouseout", function() { tooltip.style("visibility", "hidden"); });
+    link.on("mouseout", function() { tooltip.style("visibility", "hidden"); });
+
     var simulation = d3.forceSimulation(nodes)
     .force("link", d3.forceLink(links).id(d => d.id).distance(100))
     .force("charge", d3.forceManyBody().strength(-300))
