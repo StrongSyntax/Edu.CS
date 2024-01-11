@@ -1,12 +1,9 @@
-// Assuming D3.js is already included in your HTML
-
 document.addEventListener('DOMContentLoaded', function() {
     var width = 960, height = 600;
 
     var svg = d3.select("#sociogram").append("svg")
         .attr("width", width)
         .attr("height", height);
-
     var data = {
         "CharacterDevelopment": {
             "MainCharacters": {
@@ -124,43 +121,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-var nodes = data.Sociogram.people.map(function(d) { return {id: d.name}; });
-    var links = data.Sociogram.important_interactions.map(function(d) { return {source: d.between[0], target: d.between[1], description: d.description}; });
+    var nodes = data.Sociogram.people.map(function(d) { return {id: d.name}; });
+    var links = data.Sociogram.people.flatMap(d => 
+        d.connections.map(link => ({ source: d.name, target: link.name, strength: link.strength, details: link.details }))
+    );
 
     var simulation = d3.forceSimulation(nodes)
-        .force("link", d3.forceLink(links).id(function(d) { return d.id; }))
+        .force("link", d3.forceLink(links).id(d => d.id))
         .force("charge", d3.forceManyBody())
         .force("center", d3.forceCenter(width / 2, height / 2));
 
     var link = svg.append("g")
+        .attr("class", "links")
         .selectAll("line")
         .data(links)
-        .join("line");
+        .enter().append("line");
 
     var node = svg.append("g")
+        .attr("class", "nodes")
         .selectAll("circle")
         .data(nodes)
-        .join("circle")
+        .enter().append("circle")
         .attr("r", 5);
 
-    simulation.on("tick", () => {
+    // Add hover text for nodes
+    node.append("title")
+        .text(function(d) { 
+            return d.id; // Display the name of the node
+        });
+
+    // Add hover text for links
+    link.append("title")
+        .text(function(d) { 
+            return d.details; // Display the details of the connection
+        });
+
+    simulation.on("tick", function() {
         link
-            .attr("x1", d => d.source.x)
-            .attr("y1", d => d.source.y)
-            .attr("x2", d => d.target.x)
-            .attr("y2", d => d.target.y);
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
 
         node
-            .attr("cx", d => d.x)
-            .attr("cy", d => d.y);
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
     });
-
-    // Hover effect for nodes
-    node.append("title")
-        .text(function(d) { return d.id; });
-
-    // Hover effect for links
-    link.append("title")
-        .text(function(d) { return d.description; });
 });
-
