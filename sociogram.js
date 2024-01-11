@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var svg = d3.select("#sociogram").append("svg")
         .attr("width", width)
         .attr("height", height);
+
     var data = {
         "CharacterDevelopment": {
             "MainCharacters": {
@@ -121,20 +122,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    var nodes = data.Sociogram.people.map(function(d) { 
-        return {
-            id: d.name, 
-            img: 'assets/images/' + d.name + '.png' // Assumes you have images named after the people
-        }; 
-    });
-
     var links = data.Sociogram.people.flatMap(d => 
-        d.connections.map(link => ({ source: d.name, target: link.name, strength: link.strength, details: link.details }))
+        d.connections.map(link => ({ source: d.name, target: link.name }))
     );
 
     var simulation = d3.forceSimulation(nodes)
-        .force("link", d3.forceLink(links).id(d => d.id).distance(100)) // Adjust distance between nodes
-        .force("charge", d3.forceManyBody().strength(-300)) // Adjust repulsion/attraction strength
+        .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+        .force("charge", d3.forceManyBody().strength(-300))
         .force("center", d3.forceCenter(width / 2, height / 2));
 
     var link = svg.append("g")
@@ -145,35 +139,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var node = svg.append("g")
         .attr("class", "nodes")
-        .selectAll("g.node")
+        .selectAll("g")
         .data(nodes)
-        .enter().append("g")
-        .attr("class", "node");
+        .enter().append("g");
 
-    // Append images
     node.append("image")
-        .attr("xlink:href", d => d.img)
+        .attr("xlink:href", function(d) { return d.img; })
         .attr("x", -16)
         .attr("y", -16)
         .attr("width", 32)
-        .attr("height", 32);
+        .attr("height", 32)
+        .on("error", function() { d3.select(this).remove(); });  // Remove image if not found
 
-    // Hover text for nodes
     node.append("title")
-        .text(d => d.id);
-
-    // Hover text for links
-    link.append("title")
-        .text(d => d.details);
+        .text(function(d) { return d.id; });
 
     simulation.on("tick", function() {
         link
-            .attr("x1", d => d.source.x)
-            .attr("y1", d => d.source.y)
-            .attr("x2", d => d.target.x)
-            .attr("y2", d => d.target.y);
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
 
         node
-            .attr("transform", d => "translate(" + d.x + "," + d.y + ")");
+            .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
     });
 });
