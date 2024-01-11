@@ -126,6 +126,13 @@ document.addEventListener('DOMContentLoaded', function() {
         d.connections.map(link => ({ source: d.name, target: link.name }))
     );
 
+    var nodes = data.Sociogram.people.map(function(d) { 
+        return {
+            id: d.name, 
+            img: 'images/' + d.name.replace(/\s/g, '') + '.png'
+        }; 
+    });
+
     var simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).distance(100))
         .force("charge", d3.forceManyBody().strength(-300))
