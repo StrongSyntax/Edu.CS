@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var width = 960, height = 600;
+  var width = window.innerWidth; // 80% of the window width
+  var height = window.innerHeight;     // Full window height
 
   var svg = d3.select("#sociogram").append("svg")
       .attr("width", width)
