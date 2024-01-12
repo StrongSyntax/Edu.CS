@@ -65,7 +65,7 @@ body {
     white-space: nowrap;
     z-index: 100; /* Ensure it's above other elements */
     font-family: 'Lexend', sans-serif; /* Use Lexend for the about-me section */
-    font-weight: 700; /* Lexend Bold */
+    font-weight: 400; /* Lexend Bold */
     
 }
 
