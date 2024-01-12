@@ -4,8 +4,8 @@ let performanceLevel = 'high';
 let particleCount;
 
 function preload() {
-    img1 = loadImage('path/to/andrewsim1.png');
-    img2 = loadImage('path/to/andrewsim2.png');
+    img1 = loadImage('assets/images/andrewsim1.png');
+    img2 = loadImage('assets/images/andrewsim2.png');
 }
 
 function setup() {
