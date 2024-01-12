@@ -38,20 +38,16 @@ body {
 
 .about-me {
     position: fixed;
-    right: 50px; 
-    bottom: 40px;
-    background: #252526;
-    color: #d4d4d4;
+    right: 10px; /* Adjust as necessary */
+    bottom: 50px; /* Adjust so it does not overlap the question mark */
+    background: #252526; 
+    color: #d4d4d4; 
     padding: 10px;
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    display: none; /* Change from visibility to display */
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    display: none; /* Start hidden */
     white-space: nowrap;
-    z-index: 100;
-    font-family: 'Lexend', sans-serif;
-    font-weight: 400; 
+    z-index: 100; 
 }
 
 .question-mark {
@@ -61,7 +57,6 @@ body {
     color: darkgrey;
     font-size: 24px;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .question-mark:hover {
