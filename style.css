@@ -52,18 +52,18 @@ body {
     left: 0;
 }
 
+
+/* Keep the about-me section hidden initially */
 .about-me {
     position: fixed;
-    right: 50px; /* Adjust this value to position the text */
-    bottom: 10px;
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    transition: width 0.5s ease;
-    background: transparent; /* Background is transparent */
+    right: 10px;
+    bottom: 50px; /* Position it above the question mark */
+    background: transparent;
     text-align: left;
-    color: #333; /* Text is a dark grey */
+    color: #333;
     visibility: hidden; /* Hide the text initially */
+    opacity: 0; /* Make the text fully transparent */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition for fading effect */
 }
 
 .question-mark {
@@ -73,12 +73,12 @@ body {
     color: darkgrey; /* Dark grey question mark */
     font-size: 24px;
     cursor: pointer;
-    transition: right 0.5s ease;
+    transition: color 0.3s ease; /* Transition for color change */
 }
 
-/* When hovering over the question mark, slide it over and reveal the about text */
+/* When hovering over the question mark, change its color to black */
 .question-mark:hover {
-    right: 300px; /* Slide to the left; adjust as needed based on your text width */
+    color: black; /* Change color to black */
 }
 
 .question-mark:hover ~ .about-me {
