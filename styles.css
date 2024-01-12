@@ -2,30 +2,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%vw; /* Full viewport width */
+    width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
     background-color: #000000;
 }
 
 svg {
-    display: block; /* Removes any extra space at the bottom */
-    max-width: 100%; /* Adjust as needed */
-    height: auto; /* May need to adjust based on your aspect ratio */
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .links line {
-    stroke: #ffffff;      /* Line color */
+    stroke: #ffffff;
     stroke-opacity: 0.6;
-    stroke-width: 2px; /* Line thickness */
+    stroke-width: 2px;
 }
 
 .tooltip {
-    display: none;
     position: absolute;
-    /* Additional styling for the tooltip */
-  }
-  
-  .sociogram-node:hover .tooltip {
-    display: block;
-    /* Positioning and styling when visible */
-  }
+    background-color: white; /* Add more styling as needed */
+    padding: 5px;
+    border-radius: 5px;
+    pointer-events: none;
+}
