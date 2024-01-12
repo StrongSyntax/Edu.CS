@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var height = window.innerHeight; // Full window height
 
   var svg = d3.select("#sociogram").append("svg")
-      .attr("width", width)
-      .attr("height", height);
+      .attr("width", "100%") // Set width to 100% of the container
+      .attr("height", "100%"); // Set height to 100% of the container
 
   var g = svg.append("g"); // Group for zooming
 
@@ -304,4 +304,12 @@ document.querySelectorAll('.sociogram-node').forEach(node => {
   node.addEventListener('mouseleave', function() {
     this.removeChild(this.querySelector('.tooltip'));
   });
+});
+
+window.addEventListener('resize', function() {
+  var newWidth = window.innerWidth;
+  var newHeight = window.innerHeight;
+
+  svg.attr("width", newWidth)
+     .attr("height", newHeight);
 });
