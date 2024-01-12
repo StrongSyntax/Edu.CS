@@ -1,13 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const gridItems = document.querySelectorAll('.grid-item');
+document.addEventListener('DOMContentLoaded', function() {
+    var questionMark = document.getElementById('question-mark');
+    var aboutMe = document.getElementById('about-me');
 
-    gridItems.forEach(item => {
-        item.addEventListener('click', () => {
-            alert(`You clicked on ${item.textContent}`);
-            // Here you can add more logic, like redirecting to another page
-        });
+    questionMark.addEventListener('click', function() {
+        var isVisible = aboutMe.style.visibility === 'visible';
+
+        // Move the question mark to the left or back to the right
+        this.style.right = isVisible ? '10px' : '300px'; // Adjust '300px' as needed
+
+        // Toggle the visibility and opacity of the About Me section
+        aboutMe.style.visibility = isVisible ? 'hidden' : 'visible';
+        aboutMe.style.opacity = isVisible ? '0' : '1';
     });
 });
+
 
 document.getElementById('question-mark').addEventListener('click', function() {
     var aboutMe = document.getElementById('about-me');
