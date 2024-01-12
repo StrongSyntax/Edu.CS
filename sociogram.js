@@ -1,12 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var width = window.innerWidth; // Full window width
-  var height = window.innerHeight; // Full window height
-
   var svg = d3.select("#sociogram").append("svg")
-      .attr("width", "100%") // Set width to 100% of the container
-      .attr("height", "100%"); // Set height to 100% of the container
+      .attr("width", "100%")
+      .attr("height", "100%");
 
-  var g = svg.append("g"); // Group for zooming
+  var g = svg.append("g");
 
     var data = {
         "CharacterDevelopment": {
@@ -146,23 +143,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
     var simulation = d3.forceSimulation(nodes)
-      .force("link", d3.forceLink(links).id(d => d.id).distance(100))
-      .force("charge", d3.forceManyBody().strength(-300))
-      .force("center", d3.forceCenter(width / 2, height / 2));
-  
+        .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(window.innerWidth / 2, window.innerHeight / 2));
+
     var link = g.append("g")
-      .attr("class", "links")
-      .selectAll("line")
-      .data(links)
-      .enter().append("line")
-      .attr("stroke", "#999")
-      .attr("stroke-opacity", 0.6);
-  
+        .attr("class", "links")
+        .selectAll("line")
+        .data(links)
+        .enter().append("line")
+        .attr("stroke", "#999")
+        .attr("stroke-opacity", 0.6)
+        .on("mouseover", showLinkTooltip)
+        .on("mouseout", hideTooltip);
+
     var node = g.append("g")
-      .attr("class", "nodes")
-      .selectAll("g")
-      .data(nodes)
-      .enter().append("g");
+        .attr("class", "nodes")
+        .selectAll("g")
+        .data(nodes)
+        .enter().append("g");
   
     node.append("image")
       .attr("xlink:href", d => d.img)
@@ -174,13 +173,27 @@ document.addEventListener('DOMContentLoaded', function() {
   
     var tooltip = d3.select("#tooltip");
   
+    // Function to show tooltip for nodes
     function showNodeTooltip(event, d) {
+      // Extract personality information
+      let personalityInfo = data.CharacterDevelopment.MainCharacters[d.id] 
+          || data.CharacterDevelopment.SupportingCharacters[d.id] 
+          || "Personality details not available";
+
+      // Format connections information
       let connectionsInfo = d.connections.map(c => `${c.name} (${c.details})`).join(', ');
-      tooltip.html(`<strong>${d.id}</strong><br/>${d.characterInfo}<br/>Connections: ${connectionsInfo}`)
-        .style("left", (event.pageX + 10) + "px")
-        .style("top", (event.pageY - 10) + "px")
-        .style("visibility", "visible");
+
+      tooltip.html(`<strong>${d.id}</strong><br/>Personality: ${personalityInfo}<br/>Connections: ${connectionsInfo}`)
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY - 10) + "px")
+          .style("visibility", "visible");
     }
+
+    // Add tooltip functionality to nodes
+    node.on("mouseover", showNodeTooltip)
+      .on("mouseout", function() {
+          tooltip.style("visibility", "hidden");
+      });
   
     function showLinkTooltip(event, d) {
       tooltip.html(`Connection: ${d.source.id} - ${d.target.id}<br/>Strength: ${d.strength}<br/>Details: ${d.details}`)
@@ -192,11 +205,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function hideTooltip() {
       tooltip.style("visibility", "hidden");
     }
-  
-    node.on("mouseover", showNodeTooltip).on("mouseout", hideTooltip);
-    link.on("mouseover", showLinkTooltip).on("mouseout", hideTooltip);
-        // Select the tooltip element
-    var tooltip = d3.select("#tooltip");
 
 // Function to show tooltip
 function showTooltip(event, d) {
@@ -211,9 +219,8 @@ function hideTooltip() {
   tooltip.style("visibility", "hidden");
 }
 
-// Add tooltip functionality to nodes
-node.on("mouseover", showTooltip)
-  .on("mouseout", hideTooltip);
+node.on("mouseover", showNodeTooltip)
+.on("mouseout", hideTooltip);
 
 // Add tooltip functionality to links (if needed)
 link.on("mouseover", showTooltip)
@@ -232,10 +239,15 @@ link.on("mouseover", showTooltip)
 
     // Zoom and pan functionality
     var zoom = d3.zoom()
-        .scaleExtent([0.1, 10])  // Set the scale limits for zooming
+        .scaleExtent([0.1, 10])
         .on('zoom', (event) => {
-            g.attr('transform', event.transform);  // Apply zoom transform to group 'g'
+            g.attr('transform', event.transform);
         });
+
+    svg.call(zoom).on("dblclick.zoom", null);
+
+    document.addEventListener('keydown', handleKeyDown);
+});
 
     svg.call(zoom).on("dblclick.zoom", null);
 
@@ -287,24 +299,6 @@ window.addEventListener('resize', function() {
       .attr("width", newWidth)
       .attr("height", newHeight);
   });
-
-    // Add tooltip functionality (if needed)
-    // ...
-});
-
-document.querySelectorAll('.sociogram-node').forEach(node => {
-  node.addEventListener('mouseenter', function() {
-    var info = this.getAttribute('data-info');
-    var tooltip = document.createElement('div');
-    tooltip.className = 'tooltip';
-    tooltip.textContent = info;
-    this.appendChild(tooltip);
-  });
-
-  node.addEventListener('mouseleave', function() {
-    this.removeChild(this.querySelector('.tooltip'));
-  });
-});
 
 window.addEventListener('resize', function() {
   var newWidth = window.innerWidth;
