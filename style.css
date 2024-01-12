@@ -36,6 +36,24 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Add more shadow for a lifting effect */
 }
 
+.about-me {
+    position: fixed;
+    right: 50px; 
+    bottom: 40px;
+    background: #252526;
+    color: #d4d4d4;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: none; /* Change from visibility to display */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    z-index: 100;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400; 
+}
+
 .question-mark {
     position: fixed;
     right: 10px;
@@ -43,29 +61,11 @@ body {
     color: darkgrey;
     font-size: 24px;
     cursor: pointer;
-    transition: color 0.3s ease, right 0.5s ease;
+    transition: color 0.3s ease;
 }
 
 .question-mark:hover {
-    color: rgb(255, 255, 255);
-}
-
-.about-me {
-    position: fixed;
-    right: 50px; /* Adjust based on your design preference */
-    bottom: 40px;
-    background: #252526; /* Background color similar to VS Code panel */
-    color: #d4d4d4; /* Text color */
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease; /* Transition for the opacity */
-    white-space: nowrap;
-    z-index: 100; /* Ensure it's above other elements */
-    font-family: 'Lexend', sans-serif; /* Use Lexend for the about-me section */
-    font-weight: 400; /* Lexend Bold */
+    color: white;
 }
 
 /* Styling for text inside about-me to ensure it's readable */
