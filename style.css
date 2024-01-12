@@ -1,79 +1,70 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(255, 255, 255);
+    background-color: #1e1e1e; /* Dark background similar to VS Code */
+    color: #d4d4d4; /* Light grey text color for contrast */
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax for your preferred size */
-    gap: 15px; /* This adds space between the entries */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
     padding: 20px;
     justify-items: center;
-    transition: gap 0.3s ease;
 }
 
 .grid-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Needed for absolute positioning of children */
-    width: 100%; /* Each entry will fill the column width */
-    height: 250px; /* Adjust height for your preferred size */
+    position: relative;
+    width: 100%;
+    height: 250px;
     background-size: cover;
     background-position: center;
-    filter: grayscale(100%); /* Start with greyscale */
-    text-decoration: none;
-    color: white; /* Text color */
-    font-size: 20px; /* Text size */
-    border: 2px solid transparent; /* Adjust border as needed */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid #3c3c3c; /* Slightly lighter border for visibility */
     overflow: hidden;
-    /* Added box-shadow for better visibility on scale */
-    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
-    /* Add a slight shadow to create a lifting effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .grid-item:hover {
-    transform: scale(1.1); /* Scale up the grid item */
-    filter: grayscale(0%); /* Optional: if you want to remove the grey filter on hover */
-    z-index: 1; /* Ensures the scaling item is above the others */
-    /* Increase the shadow to emphasize the lift */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-color: #0066ff; /* Change border color on hover */
-}
-
-/* This ensures the text is centered within the grid item, 
-   especially when scaled */
-.grid-item p {
-    text-align: center;
-    width: 100%;
-    position: absolute; /* Position text over the image */
-    bottom: 10px; /* Position text at the bottom of the grid item */
-    left: 0;
-}
-
-
-/* Keep the about-me section hidden initially */
-.about-me {
-    position: fixed;
-    right: 10px;
-    bottom: 50px; /* Position it above the question mark */
-    background: transparent;
-    text-align: left;
-    color: #333;
-    visibility: hidden; /* Hide the text initially */
-    opacity: 0; /* Make the text fully transparent */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition for fading effect */
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .question-mark {
     position: fixed;
     right: 10px;
     bottom: 10px;
-    color: darkgrey; /* Dark grey question mark */
+    color: #d4d4d4; /* Light grey question mark to be visible on dark background */
     font-size: 24px;
     cursor: pointer;
-    transition: color 0.3s ease; /* Transition for color change */
+    transition: color 0.3s ease;
+}
+
+.question-mark:hover {
+    color: #ffffff; /* Change color to white on hover */
+}
+
+.about-me {
+    position: fixed;
+    right: 50px; /* Adjust based on your design preference */
+    bottom: 10px;
+    background: #252526; /* Background color similar to VS Code panel */
+    color: #d4d4d4; /* Text color */
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease, right 0.3s ease;
+    white-space: nowrap;
+    z-index: 100; /* Ensure it's above other elements */
+}
+
+/* Styling for text inside about-me to ensure it's readable */
+.about-me p {
+    margin: 0;
 }
 
 /* When hovering over the question mark, change its color to black */
