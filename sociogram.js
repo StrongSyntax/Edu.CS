@@ -176,12 +176,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to show tooltip for nodes
     function showNodeTooltip(event, d) {
       // Extract personality information
-      let personalityInfo = data.CharacterDevelopment.MainCharacters[d.id] 
-          || data.CharacterDevelopment.SupportingCharacters[d.id] 
-          || "Personality details not available";
+      let personalityInfo = data.CharacterDevelopment.MainCharacters[d.id] || 
+                            data.CharacterDevelopment.SupportingCharacters[d.id] || 
+                            "Personality details not available";
 
-      // Format connections information
-      let connectionsInfo = d.connections.map(c => `${c.name} (${c.details})`).join(', ');
+      // Format connections information as list items
+      let connectionsInfo = "<ul>" + d.connections.map(c => `<li>${c.name} (${c.details})</li>`).join('') + "</ul>";
 
       tooltip.html(`<strong>${d.id}</strong><br/>Personality: ${personalityInfo}<br/>Connections: ${connectionsInfo}`)
           .style("left", (event.pageX + 10) + "px")
@@ -201,30 +201,18 @@ document.addEventListener('DOMContentLoaded', function() {
         .style("top", (event.pageY - 10) + "px")
         .style("visibility", "visible");
     }
-  
+
+    // Function to hide tooltip
     function hideTooltip() {
       tooltip.style("visibility", "hidden");
     }
 
-// Function to show tooltip
-function showTooltip(event, d) {
-  tooltip.style("visibility", "visible")
-         .html("Name: " + d.id + "<br/>Additional Info: " + (d.additionalInfo || 'N/A'))
-         .style("top", (event.pageY - 10) + "px")
-         .style("left", (event.pageX + 10) + "px");
-}
+    node.on("mouseover", showNodeTooltip)
+    .on("mouseout", hideTooltip);
 
-// Function to hide tooltip
-function hideTooltip() {
-  tooltip.style("visibility", "hidden");
-}
-
-node.on("mouseover", showNodeTooltip)
-.on("mouseout", hideTooltip);
-
-// Add tooltip functionality to links (if needed)
-link.on("mouseover", showTooltip)
-  .on("mouseout", hideTooltip);
+    // Add tooltip functionality to links (if needed)
+    link.on("mouseover", showLinkTooltip)
+      .on("mouseout", hideTooltip);
 
 
     // Update positions on each tick of the simulation
