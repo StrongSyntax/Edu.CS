@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var width = window.innerWidth; // 80% of the window width
-  var height = window.innerHeight;     // Full window height
+  var width = window.innerWidth; // Full window width
+  var height = window.innerHeight; // Full window height
 
   var svg = d3.select("#sociogram").append("svg")
       .attr("width", width)
       .attr("height", height);
 
-  // Append a group element to SVG for zooming
-  var g = svg.append("g");
+  var g = svg.append("g"); // Group for zooming
 
     var data = {
         "CharacterDevelopment": {
@@ -126,66 +125,76 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // Process nodes and links
-    var nodes = data.Sociogram.people.map(d => ({ id: d.name, img: 'assets/images/' + d.name.replace(/\s/g, '') + '.png' }));
-    var links = data.Sociogram.people.flatMap(d => d.connections.map(link => ({ source: d.name, target: link.name })));
-
-    // Define the force simulation
+    var nodes = data.Sociogram.people.map(d => {
+      return {
+        id: d.name, 
+        img: 'assets/images/' + d.name.replace(/\s/g, '') + '.png',
+        connections: d.connections,
+        characterInfo: data.CharacterDevelopment.MainCharacters[d.name] || data.CharacterDevelopment.SupportingCharacters[d.name] || "Info not available"
+      };
+    });
+  
+    var links = data.Sociogram.people.flatMap(d => {
+      return d.connections.map(link => {
+        return { 
+          source: d.name, 
+          target: link.name, 
+          strength: link.strength, 
+          details: link.details 
+        };
+      });
+    });
+  
     var simulation = d3.forceSimulation(nodes)
-        .force("link", d3.forceLink(links).id(d => d.id).distance(100))
-        .force("charge", d3.forceManyBody().strength(-300))
-        .force("center", d3.forceCenter(width / 2, height / 2));
-
-    // Create links (lines) inside the group 'g'
+      .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+      .force("charge", d3.forceManyBody().strength(-300))
+      .force("center", d3.forceCenter(width / 2, height / 2));
+  
     var link = g.append("g")
-        .attr("class", "links")
-        .selectAll("line")
-        .data(links)
-        .enter().append("line")
-        .attr("stroke", "#999")
-        .attr("stroke-opacity", 0.6);
-
-    // Create nodes (images) inside the group 'g'
+      .attr("class", "links")
+      .selectAll("line")
+      .data(links)
+      .enter().append("line")
+      .attr("stroke", "#999")
+      .attr("stroke-opacity", 0.6);
+  
     var node = g.append("g")
-        .attr("class", "nodes")
-        .selectAll("g")
-        .data(nodes)
-        .enter().append("g");
-
+      .attr("class", "nodes")
+      .selectAll("g")
+      .data(nodes)
+      .enter().append("g");
+  
     node.append("image")
-        .attr("xlink:href", d => d.img)
-        .attr("x", -16)
-        .attr("y", -16)
-        .attr("width", 32)
-        .attr("height", 32)
-        .on("error", function() { d3.select(this).remove(); });
-
-    node.append("title")
-        .text(d => d.id);
-
-        // Select the tooltip element
+      .attr("xlink:href", d => d.img)
+      .attr("x", -16)
+      .attr("y", -16)
+      .attr("width", 32)
+      .attr("height", 32)
+      .on("error", function() { d3.select(this).remove(); });
+  
     var tooltip = d3.select("#tooltip");
-
-    // Function to show tooltip
-    function showTooltip(d) {
-        tooltip.style("visibility", "visible")
-               .html("Name: " + d.id + "<br/>Additional Info: " + d.additionalInfo)
-               .style("top", (d3.event.pageY - 10) + "px")
-               .style("left", (d3.event.pageX + 10) + "px");
+  
+    function showNodeTooltip(event, d) {
+      let connectionsInfo = d.connections.map(c => `${c.name} (${c.details})`).join(', ');
+      tooltip.html(`<strong>${d.id}</strong><br/>${d.characterInfo}<br/>Connections: ${connectionsInfo}`)
+        .style("left", (event.pageX + 10) + "px")
+        .style("top", (event.pageY - 10) + "px")
+        .style("visibility", "visible");
     }
-
-    // Function to hide tooltip
+  
+    function showLinkTooltip(event, d) {
+      tooltip.html(`Connection: ${d.source.id} - ${d.target.id}<br/>Strength: ${d.strength}<br/>Details: ${d.details}`)
+        .style("left", (event.pageX + 10) + "px")
+        .style("top", (event.pageY - 10) + "px")
+        .style("visibility", "visible");
+    }
+  
     function hideTooltip() {
-        tooltip.style("visibility", "hidden");
+      tooltip.style("visibility", "hidden");
     }
-
-    // Add tooltip functionality to nodes
-    node.on("mouseover", showTooltip)
-        .on("mouseout", hideTooltip);
-
-    // Add tooltip functionality to links (if needed)
-    link.on("mouseover", showTooltip)
-        .on("mouseout", hideTooltip);
+  
+    node.on("mouseover", showNodeTooltip).on("mouseout", hideTooltip);
+    link.on("mouseover", showLinkTooltip).on("mouseout", hideTooltip);
         // Select the tooltip element
     var tooltip = d3.select("#tooltip");
 
