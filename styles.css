@@ -20,14 +20,12 @@ svg {
 }
 
 .tooltip {
-    background-color: rgb(49, 49, 49);
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    padding: 10px;
-    color: black;
-    text-align: left;
-    font-size: 14px;
-    position: absolute; /* Ensure tooltip is positioned absolutely */
-    visibility: hidden; /* Initially hidden */
-    pointer-events: none; /* Ignore pointer events */
-}
+    display: none;
+    position: absolute;
+    /* Additional styling for the tooltip */
+  }
+  
+  .sociogram-node:hover .tooltip {
+    display: block;
+    /* Positioning and styling when visible */
+  }

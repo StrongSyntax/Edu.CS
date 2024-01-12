@@ -282,3 +282,17 @@ window.addEventListener('resize', function() {
     // Add tooltip functionality (if needed)
     // ...
 });
+
+document.querySelectorAll('.sociogram-node').forEach(node => {
+  node.addEventListener('mouseenter', function() {
+    var info = this.getAttribute('data-info');
+    var tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.textContent = info;
+    this.appendChild(tooltip);
+  });
+
+  node.addEventListener('mouseleave', function() {
+    this.removeChild(this.querySelector('.tooltip'));
+  });
+});
