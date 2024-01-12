@@ -53,7 +53,7 @@ body {
 .about-me {
     position: fixed;
     right: 50px; /* Adjust based on your design preference */
-    bottom: 10px;
+    bottom: 40px;
     background: #252526; /* Background color similar to VS Code panel */
     color: #d4d4d4; /* Text color */
     padding: 10px;
@@ -61,12 +61,11 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s ease, right 0.3s ease;
+    transition: opacity 0.3s ease; /* Transition for the opacity */
     white-space: nowrap;
     z-index: 100; /* Ensure it's above other elements */
     font-family: 'Lexend', sans-serif; /* Use Lexend for the about-me section */
     font-weight: 400; /* Lexend Bold */
-    
 }
 
 /* Styling for text inside about-me to ensure it's readable */
