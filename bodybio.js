@@ -1,64 +1,56 @@
-let images = []; // Array to hold images
-let currentImage = 0; // Index of the current image
-let particles = []; // Array to hold particles
+let img1, img2;
+let particles = [];
+let performanceLevel = 'high';
+let particleCount;
 
 function preload() {
-    // Load images of Andrew Neiman
-    images.push(loadImage('path/to/image1.jpg'));
-    images.push(loadImage('path/to/image2.jpg'));
-    // ... load more images
+    img1 = loadImage('path/to/andrewsim1.png');
+    img2 = loadImage('path/to/andrewsim2.png');
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    // Initialize particles
-    for (let i = 0; i < 1000; i++) {
-        particles.push(new Particle(random(width), random(height)));
+    switch(performanceLevel) {
+        case 'low': particleCount = 100; break;
+        case 'medium': particleCount = 500; break;
+        case 'high': particleCount = 1000; break;
+    }
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
     }
 }
 
 function draw() {
-    background(255);
-
-    // Switch images every few seconds
-    if (frameCount % 300 === 0) {
-        currentImage = (currentImage + 1) % images.length;
-    }
-
-    image(images[currentImage], 0, 0, width, height);
-
-    // Update and display particles
-    for (let p of particles) {
-        p.attractedTo(images[currentImage]); // Implement this method based on image analysis
-        p.update();
-        p.show();
-    }
+    background(0);
+    let img = (frameCount % 300 < 150) ? img1 : img2;
+    image(img, 0, 0, width, height);
+    particles.forEach(particle => {
+        particle.update();
+        particle.show();
+    });
 }
 
 class Particle {
-    constructor(x, y) {
-        this.pos = createVector(x, y);
+    constructor() {
+        this.pos = createVector(random(width), random(height));
         this.vel = createVector();
         this.acc = createVector();
     }
-
-    attractedTo(img) {
-        // Analyze the image and update acceleration towards darker spots
-        // This is a simplified placeholder
-        let target = createVector(random(width), random(height));
-        let force = p5.Vector.sub(target, this.pos);
-        force.setMag(0.1);
-        this.acc.add(force);
-    }
-
     update() {
+        let target = createVector(mouseX, mouseY);
+        this.acc = p5.Vector.sub(target, this.pos);
+        this.acc.setMag(0.1);
         this.vel.add(this.acc);
         this.pos.add(this.vel);
-        this.acc.mult(0);
+        this.vel.limit(5);
     }
-
     show() {
-        stroke(0);
-        point(this.pos.x, this.pos.y);
+        noStroke();
+        fill(255, 150, 0, 200); // Orange color with some transparency
+        circle(this.pos.x, this.pos.y, 4); // Draw the particle
     }
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }
