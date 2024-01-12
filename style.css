@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lexend', sans-serif; /* Use Lexend as the primary font */
     background-color: #1e1e1e; /* Dark background similar to VS Code */
     color: #d4d4d4; /* Light grey text color for contrast */
 }
@@ -25,6 +25,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     border: 1px solid #3c3c3c; /* Slightly lighter border for visibility */
     overflow: hidden;
+    color: white; /* Set the text color to white */
+    font-weight: 700; /* Lexend Bold */
 }
 
 .grid-item:hover {
@@ -60,11 +62,16 @@ body {
     transition: opacity 0.3s ease, visibility 0.3s ease, right 0.3s ease;
     white-space: nowrap;
     z-index: 100; /* Ensure it's above other elements */
+    font-family: 'Lexend', sans-serif; /* Use Lexend for the about-me section */
+    font-weight: 700; /* Lexend Bold */
 }
 
 /* Styling for text inside about-me to ensure it's readable */
 .about-me p {
     margin: 0;
+    color: white; /* Set the text color to white */
+    font-family: 'Lexend', sans-serif; /* Use Lexend for the text */
+    font-weight: 700; /* Lexend Bold */
 }
 
 /* When hovering over the question mark, change its color to black */
