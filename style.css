@@ -77,11 +77,6 @@ body {
     font-weight: 700; /* Lexend Bold */
 }
 
-/* When hovering over the question mark, change its color to black */
-.question-mark:hover {
-    color: black; /* Change color to black */
-}
-
 .question-mark:hover ~ .about-me {
     width: 300px; /* Width to reveal the text; adjust as needed */
     visibility: visible; /* Show the text */
