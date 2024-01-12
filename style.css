@@ -21,7 +21,6 @@ body {
     height: 250px; /* Adjust height for your preferred size */
     background-size: cover;
     background-position: center;
-    transition: filter 0.3s ease, box-shadow 0.3s ease;
     filter: grayscale(100%); /* Start with greyscale */
     text-decoration: none;
     color: white; /* Text color */
@@ -29,14 +28,18 @@ body {
     border: 2px solid transparent; /* Adjust border as needed */
     overflow: hidden;
     /* Added box-shadow for better visibility on scale */
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    /* Add a slight shadow to create a lifting effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .grid-item:hover {
-    filter: grayscale(0%); /* Saturate on hover */
+    transform: scale(1.1); /* Scale up the grid item */
+    filter: grayscale(0%); /* Optional: if you want to remove the grey filter on hover */
+    z-index: 1; /* Ensures the scaling item is above the others */
+    /* Increase the shadow to emphasize the lift */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-color: #0066ff; /* Change border color on hover */
-    z-index: 2; /* Ensure the scaling item is above the others */
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5); /* Shadow for lifted effect */
 }
 
 /* This ensures the text is centered within the grid item, 
