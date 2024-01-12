@@ -1,15 +1,29 @@
+/* Reset margins and paddings */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide overflow to remove scroll bars */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+}
+
+body {
+    font-family: 'Lexend', sans-serif;
+    background-color: #000000; /* Set background color */
+}
+
 #sociogram {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    background-color: #000000;
+    width: 100%; /* Full width of the parent */
+    height: 100%; /* Full height of the parent */
+    background-color: #000000; /* Same background color */
 }
 
 svg {
-    width: 100%; /* Ensure SVG fills the container horizontally */
-    height: 100%; /* Ensure SVG fills the container vertically */
+    width: 100%; /* Full width of the parent */
+    height: 100%; /* Full height of the parent */
 }
 
 .links line {
