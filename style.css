@@ -21,17 +21,19 @@ body {
     height: 250px;
     background-size: cover;
     background-position: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     border: 1px solid #3c3c3c; /* Slightly lighter border for visibility */
     overflow: hidden;
     color: white; /* Set the text color to white */
     font-weight: 700; /* Lexend Bold */
+    filter: grayscale(100%); /* Start with the item in grayscale */
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease; /* Include filter in the transition */
 }
 
 .grid-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1); /* Scale up on hover */
+    filter: grayscale(0%); /* Remove grayscale filter to show full color */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Add more shadow for a lifting effect */
 }
 
 .question-mark {
@@ -64,6 +66,7 @@ body {
     z-index: 100; /* Ensure it's above other elements */
     font-family: 'Lexend', sans-serif; /* Use Lexend for the about-me section */
     font-weight: 700; /* Lexend Bold */
+    
 }
 
 /* Styling for text inside about-me to ensure it's readable */
