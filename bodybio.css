@@ -12,9 +12,6 @@ body, html {
 }
 
 canvas {
-    position: absolute; /* Set a position value */
-    top: 0;
-    left: 0;
-    z-index: 2; /* Higher z-index to bring it to the front */
+    position: absolute;
+    z-index: 10; /* Adjust as needed to bring the canvas to the front */
 }
-

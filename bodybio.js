@@ -3,7 +3,7 @@ let alignmentSlider, cohesionSlider, separationSlider;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    for (let i = 0; i = 100; i++) {
+    for (let i = 0; i < 100; i++) {
         boids.push(new Boid());
     }
 
@@ -46,9 +46,29 @@ class Boid {
     }
 
     flock(boids) {
-        let alignment = this.align(boids);
-        let cohesion = this.cohesion(boids);
-        let separation = this.separation(boids);
+        let alignment = createVector();
+        let cohesion = createVector();
+        let separation = createVector();
+        let total = 0;
+        let perceptionRadius = 50;
+
+        for (let other of boids) {
+            let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
+            if (other != this && d < perceptionRadius) {
+                alignment.add(other.velocity);
+                cohesion.add(other.position);
+                let diff = p5.Vector.sub(this.position, other.position);
+                diff.div(d * d);
+                separation.add(diff);
+                total++;
+            }
+        }
+
+        if (total > 0) {
+            alignment.div(total).setMag(this.maxSpeed).sub(this.velocity).limit(this.maxForce);
+            cohesion.div(total).sub(this.position).setMag(this.maxSpeed).sub(this.velocity).limit(this.maxForce);
+            separation.div(total).setMag(this.maxSpeed).sub(this.velocity).limit(this.maxForce);
+        }
 
         alignment.mult(alignmentSlider.value());
         cohesion.mult(cohesionSlider.value());
