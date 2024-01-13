@@ -46,22 +46,32 @@ class Particle {
         this.acc = createVector();
     }
 
-    attractedToClosest(points) {
-        // Find the closest point of attraction
-        let closestPoint;
-        let recordDistance = Infinity;
-        for (let point of points) {
-            let d = p5.Vector.dist(this.pos, point);
-            if (d < recordDistance) {
-                recordDistance = d;
-                closestPoint = point;
+    attractedTo(img) {
+        // Get the image pixels
+        img.loadPixels();
+        let record = Infinity;
+        let closestPixel;
+    
+        // Iterate over a subset of pixels for performance
+        for (let y = 0; y < img.height; y += 10) {
+            for (let x = 0; x < img.width; x += 10) {
+                let index = (x + y * img.width) * 4;
+                let r = img.pixels[index];
+                let g = img.pixels[index + 1];
+                let b = img.pixels[index + 2];
+                let brightness = (r + g + b) / 3;
+    
+                // Check if this pixel is darker than the current record
+                if (brightness < record) {
+                    record = brightness;
+                    closestPixel = createVector(x, y);
+                }
             }
         }
-
-        // Calculate the attraction force towards that point
-        let force = p5.Vector.sub(closestPoint, this.pos);
-        let strength = 5 / (force.mag() + 1); // Example force calculation
-        force.setMag(strength);
+    
+        // Create a force vector towards the closest dark pixel
+        let force = p5.Vector.sub(closestPixel, this.pos);
+        force.setMag(0.1); // You can adjust the strength
         this.acc.add(force);
     }
 
@@ -72,7 +82,8 @@ class Particle {
     }
 
     show() {
-        stroke(0);
-        point(this.pos.x, this.pos.y);
+        fill(255); // White color
+        noStroke();
+        ellipse(this.pos.x, this.pos.y, 2, 2); // Small circle for each particle
     }
 }
