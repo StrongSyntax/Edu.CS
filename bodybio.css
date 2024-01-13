@@ -2,16 +2,12 @@ body, html {
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
-#simulation-container {
-    width: 100vw;
-    height: 100vh;
-    background-color: #1e1e1e;
-    position: relative; /* Set a position value */
-    z-index: 1; /* Lower z-index */
+    background-color: #1e1e1e; /* Background color */
 }
 
 canvas {
     position: absolute;
-    z-index: 100; /* Adjust as needed to bring the canvas to the front */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Ensure canvas is on top */
 }
