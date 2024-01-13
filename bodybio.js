@@ -18,9 +18,9 @@ function setup() {
 
 function draw() {
     background(255);
-    image(img, 0, 0, width, height);
+    image(img, 0, 0, width, height); // Draw the image first
 
-    // Update and display particles
+    // Now draw the particles on top of the image
     for (let p of particles) {
         p.attractedTo(img);
         p.update();
@@ -66,8 +66,8 @@ class Particle {
     }
 
     show() {
-        fill(255);
+        fill(255); // White color
         noStroke();
-        ellipse(this.pos.x, this.pos.y, 2, 2);
+        ellipse(this.pos.x, this.pos.y, 2, 2); // Small circle for each particle
     }
 }
