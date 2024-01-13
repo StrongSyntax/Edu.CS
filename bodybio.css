@@ -13,5 +13,5 @@ body, html {
 
 canvas {
     position: absolute;
-    z-index: 10; /* Adjust as needed to bring the canvas to the front */
+    z-index: 100; /* Adjust as needed to bring the canvas to the front */
 }
