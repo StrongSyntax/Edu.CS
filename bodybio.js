@@ -1,5 +1,5 @@
 let particles = [];
-const particleCount = 100;
+const particleCount = 10000;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
