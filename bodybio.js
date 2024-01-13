@@ -19,10 +19,10 @@ function setup() {
 
 function draw() {
     background(255);
-    image(img, 0, 0, width, height); // Draw the image first
+    image(img, 0, 0, width, height); // Re-enable the image
 
     for (let p of particles) {
-        // p.attractedTo(img); // Temporarily comment this out
+        p.attractedTo(img); // Re-enable particle attraction
         p.update();
         p.show();
     }
@@ -41,7 +41,7 @@ class Particle {
         let record = Infinity;
 
         // Sample a subset of pixels around the particle
-        let scanRadius = 50; // Define a scan radius
+        let scanRadius = 10; // Define a scan radius
         for (let y = this.pos.y - scanRadius; y < this.pos.y + scanRadius; y += 10) {
             for (let x = this.pos.x - scanRadius; x < this.pos.x + scanRadius; x += 10) {
                 if (x >= 0 && x < img.width && y >= 0 && y < img.height) {
