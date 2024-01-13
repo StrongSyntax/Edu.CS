@@ -1,5 +1,5 @@
 let particles = [];
-const particleCount = 100; // Adjust the number of particles
+const particleCount = 100;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -12,10 +12,17 @@ function draw() {
     background(255);
 
     for (let i = 0; i < particles.length; i++) {
-        let p = particles[i];
-        p.update();
-        p.edges();
-        p.show();
+        for (let j = 0; j < particles.length; j++) {
+            if (i !== j) {
+                particles[i].repel(particles[j]);
+            }
+        }
+    }
+
+    for (let particle of particles) {
+        particle.update();
+        particle.edges();
+        particle.show();
     }
 }
 
@@ -23,13 +30,23 @@ class Particle {
     constructor(x, y) {
         this.pos = createVector(x, y);
         this.vel = p5.Vector.random2D();
+        this.vel.mult(random(3));
         this.acc = createVector();
+    }
+
+    repel(other) {
+        let force = p5.Vector.sub(this.pos, other.pos);
+        let distance = force.mag();
+        distance = constrain(distance, 5, 50); // Limiting the distance to eliminate extreme results
+        let strength = -5 / (distance * distance); // Repulsion
+        force.setMag(strength);
+        this.acc.add(force);
     }
 
     update() {
         this.vel.add(this.acc);
         this.pos.add(this.vel);
-        this.acc.mult(0); // Reset acceleration each frame
+        this.acc.mult(0);
     }
 
     edges() {
