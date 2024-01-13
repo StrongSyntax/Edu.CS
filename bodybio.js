@@ -18,16 +18,15 @@ function setup() {
 
 function draw() {
     background(255);
-    image(img, 0, 0, width, height); // Draw the image
+    image(img, 0, 0, width, height); // Draw the image first
 
-    // Comment out the particles for now
-    // for (let p of particles) {
-    //     p.attractedTo(img);
-    //     p.update();
-    //     p.show();
-    // }
+    // Now draw the particles on top of the image
+    for (let p of particles) {
+        p.attractedTo(img);
+        p.update();
+        p.show();
+    }
 }
-
 
 class Particle {
     constructor(x, y) {
