@@ -7,4 +7,14 @@ body, html {
     width: 100vw;
     height: 100vh;
     background-color: #1e1e1e;
+    position: relative; /* Set a position value */
+    z-index: 1; /* Lower z-index */
 }
+
+canvas {
+    position: absolute; /* Set a position value */
+    top: 0;
+    left: 0;
+    z-index: 2; /* Higher z-index to bring it to the front */
+}
+
