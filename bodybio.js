@@ -9,17 +9,27 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    // Call the processImage function when setup runs
     img.loadPixels();
     processImage();
     img.updatePixels();
-  }
+
+    // Initialize particles
+    for (let i = 0; i < 1000; i++) { // You can adjust the number of particles
+        particles.push(new Particle(random(width), random(height)));
+    }
+}
   
-  function draw() {
-    // Render the processed image
+function draw() {
     background(255);
     image(img, 0, 0, width, height);
-  }
+
+    // Update and display particles
+    for (let p of particles) {
+        p.attractedTo(img); // Attract particles to darker areas
+        p.update();
+        p.show();
+    }
+}
   
   function processImage() {
     for (let i = 0; i < img.pixels.length; i += 4) {
