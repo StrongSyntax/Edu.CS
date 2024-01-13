@@ -65,6 +65,8 @@ class Particle {
     }
 
     update() {
+        console.log("Updating particle:", this.pos.x, this.pos.y); // Log positions
+
         this.vel.add(this.acc);
         this.vel.limit(this.maxSpeed);
         this.pos.add(this.vel);
@@ -72,8 +74,10 @@ class Particle {
     }
 
     show() {
-        fill(255);
+        console.log("Showing particle:", this.pos.x, this.pos.y); // Log positions
+
+        fill(0, 255, 0); // Change color for visibility
         noStroke();
-        ellipse(this.pos.x, this.pos.y, 2, 2);
+        ellipse(this.pos.x, this.pos.y, 10, 10); // Increase size for testing
     }
 }
