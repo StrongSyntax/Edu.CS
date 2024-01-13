@@ -8,12 +8,25 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    img.loadPixels();
+    console.log('Image loaded:', img);
+
+    // Initialize particles
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle(random(width), random(height)));
+    }
 }
 
 function draw() {
     background(255);
-    fill(0);
-    ellipse(50, 50, 80, 80); // Draw a simple shape
+    image(img, 0, 0, width, height); // Draw the image first
+
+    // Draw the particles on top of the image
+    for (let p of particles) {
+        p.attractedTo(img);
+        p.update();
+        p.show();
+    }
 }
 
 class Particle {
