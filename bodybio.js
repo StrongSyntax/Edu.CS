@@ -11,19 +11,18 @@ function setup() {
     img.loadPixels();
     console.log('Image loaded:', img);
 
-    // Initialize particles
     for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle(random(width), random(height)));
     }
+    console.log("Number of particles created:", particles.length);
 }
 
 function draw() {
     background(255);
     image(img, 0, 0, width, height); // Draw the image first
 
-    // Draw the particles on top of the image
     for (let p of particles) {
-        p.attractedTo(img);
+        // p.attractedTo(img); // Temporarily comment this out
         p.update();
         p.show();
     }
