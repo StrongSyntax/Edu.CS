@@ -18,3 +18,9 @@ canvas {
     left: 10px;
     z-index: 200; /* Higher than the canvas */
 }
+
+.slider {
+    position: absolute;
+    z-index: 200; /* Adjust as necessary */
+    left: 10px;
+}
