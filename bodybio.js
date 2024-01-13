@@ -1,68 +1,152 @@
-let particles = [];
-const particleCount = 10000;
+let boids = [];
+let alignmentSlider, cohesionSlider, separationSlider;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle(random(width), random(height)));
+    for (let i = 0; i = 100; i++) {
+        boids.push(new Boid());
     }
+
+    // Create sliders
+    alignmentSlider = createSlider(0, 2, 1, 0.1);
+    cohesionSlider = createSlider(0, 2, 1, 0.1);
+    separationSlider = createSlider(0, 2, 1, 0.1);
+
+    // Position sliders
+    alignmentSlider.position(10, 10);
+    cohesionSlider.position(10, 40);
+    separationSlider.position(10, 70);
 }
 
 function draw() {
     background(255);
-
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = 0; j < particles.length; j++) {
-            if (i !== j) {
-                particles[i].repel(particles[j]);
-            }
-        }
-    }
-
-    for (let particle of particles) {
-        particle.update();
-        particle.edges();
-        particle.show();
+    for (let boid of boids) {
+        boid.edges();
+        boid.flock(boids);
+        boid.update();
+        boid.show();
     }
 }
 
-class Particle {
-    constructor(x, y) {
-        this.pos = createVector(x, y);
-        this.vel = p5.Vector.random2D();
-        this.vel.mult(random(3));
-        this.acc = createVector();
-    }
-
-    repel(other) {
-        let force = p5.Vector.sub(this.pos, other.pos);
-        let distance = force.mag();
-        distance = constrain(distance, 5, 50); // Limiting the distance to eliminate extreme results
-        let strength = -5 / (distance * distance); // Repulsion
-        force.setMag(strength);
-        this.acc.add(force);
-    }
-
-    update() {
-        this.vel.add(this.acc);
-        this.pos.add(this.vel);
-        this.acc.mult(0);
+class Boid {
+    constructor() {
+        this.position = createVector(random(width), random(height));
+        this.velocity = p5.Vector.random2D();
+        this.velocity.setMag(random(2, 4));
+        this.acceleration = createVector();
+        this.maxForce = 1;
+        this.maxSpeed = 4;
     }
 
     edges() {
-        if (this.pos.x > width || this.pos.x < 0) {
-            this.vel.x *= -1;
+        if (this.position.x > width) this.position.x = 0;
+        if (this.position.x < 0) this.position.x = width;
+        if (this.position.y > height) this.position.y = 0;
+        if (this.position.y < 0) this.position.y = height;
+    }
+
+    flock(boids) {
+        let alignment = this.align(boids);
+        let cohesion = this.cohesion(boids);
+        let separation = this.separation(boids);
+
+        alignment.mult(alignmentSlider.value());
+        cohesion.mult(cohesionSlider.value());
+        separation.mult(separationSlider.value());
+
+        this.acceleration.add(alignment);
+        this.acceleration.add(cohesion);
+        this.acceleration.add(separation);
+    }
+
+    align(boids) {
+        let perceptionRadius = 50;
+        let steering = createVector();
+        let total = 0;
+        for (let other of boids) {
+            let d = dist(
+                this.position.x,
+                this.position.y,
+                other.position.x,
+                other.position.y
+            );
+            if (other != this && d < perceptionRadius) {
+                steering.add(other.velocity);
+                total++;
+            }
         }
-        if (this.pos.y > height || this.pos.y < 0) {
-            this.vel.y *= -1;
+        if (total > 0) {
+            steering.div(total);
+            steering.setMag(this.maxSpeed);
+            steering.sub(this.velocity);
+            steering.limit(this.maxForce);
         }
+        return steering;
+    }
+
+    cohesion(boids) {
+        let perceptionRadius = 50;
+        let steering = createVector();
+        let total = 0;
+        for (let other of boids) {
+            let d = dist(
+                this.position.x,
+                this.position.y,
+                other.position.x,
+                other.position.y
+            );
+            if (other != this && d < perceptionRadius) {
+                steering.add(other.position);
+                total++;
+            }
+        }
+        if (total > 0) {
+            steering.div(total);
+            steering.sub(this.position);
+            steering.setMag(this.maxSpeed);
+            steering.sub(this.velocity);
+            steering.limit(this.maxForce);
+        }
+        return steering;
+    }
+
+    separation(boids) {
+        let perceptionRadius = 50;
+        let steering = createVector();
+        let total = 0;
+        for (let other of boids) {
+            let d = dist(
+                this.position.x,
+                this.position.y,
+                other.position.x,
+                other.position.y
+            );
+            if (other != this && d < perceptionRadius) {
+                let diff = p5.Vector.sub(this.position, other.position);
+                diff.div(d * d);
+                steering.add(diff);
+                total++;
+            }
+        }
+        if (total > 0) {
+            steering.div(total);
+            steering.setMag(this.maxSpeed);
+            steering.sub(this.velocity);
+            steering.limit(this.maxForce);
+        }
+        return steering;
+    }
+
+    update() {
+        this.velocity.add(this.acceleration);
+        this.velocity.limit(this.maxSpeed);
+        this.position.add(this.velocity);
+        this.acceleration.mult(0);
     }
 
     show() {
-        let speed = this.vel.mag();
-        let color = map(speed, 0, 5, 255, 0); // Map speed to color
-        fill(color, 0, 0); // Red intensity based on speed
-        noStroke();
-        ellipse(this.pos.x, this.pos.y, 5, 5);
+        strokeWeight(8);
+        stroke(0);
+        point(this.position.x, this.position.y);
     }
 }
