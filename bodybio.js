@@ -8,9 +8,9 @@ function setup() {
     }
 
     // Create sliders
-    alignmentSlider = createSlider(0, 2, 1, 0.1);
-    cohesionSlider = createSlider(0, 2, 1, 0.1);
-    separationSlider = createSlider(0, 2, 1, 0.1);
+//    alignmentSlider = createSlider(0, 2, 1, 0.1);
+//    cohesionSlider = createSlider(0, 2, 1, 0.1);
+//    separationSlider = createSlider(0, 2, 1, 0.1);
 
     // Position sliders
     alignmentSlider.position(10, 10);
@@ -46,9 +46,15 @@ class Boid {
     }
 
     flock(boids) {
-        let alignment = createVector();
-        let cohesion = createVector();
-        let separation = createVector();
+        // Access HTML sliders
+        let alignmentValue = document.querySelector(".alignment-slider").value;
+        let cohesionValue = document.querySelector(".cohesion-slider").value;
+        let separationValue = document.querySelector(".separation-slider").value;
+
+        // Rest of the flock method...
+        alignment.mult(parseFloat(alignmentValue));
+        cohesion.mult(parseFloat(cohesionValue));
+        separation.mult(parseFloat(separationValue));
         let total = 0;
         let perceptionRadius = 50;
 
