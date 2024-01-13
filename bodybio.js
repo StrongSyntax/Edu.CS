@@ -7,11 +7,15 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-    img.loadPixels();
-    console.log('Image loaded:', img);
+    let cnv = createCanvas(windowWidth, windowHeight);
+    if (cnv.context === null) {
+        console.error("Canvas failed to create a 2D context");
+        return;
+    }
 
-    // Initialize particles
+    img.loadPixels();
+    console.log('Image pixels loaded:', img.pixels.length);
+
     for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle(random(width), random(height)));
     }
@@ -19,9 +23,17 @@ function setup() {
 
 function draw() {
     background(255);
-    image(img, 0, 0, width, height); // Draw the image first
 
-    // Draw the particles on top of the image
+    // Test drawing
+    fill(0);
+    ellipse(50, 50, 80, 80); // Draw a simple shape to test the canvas
+
+    if (img.width > 0 && img.height > 0) {
+        image(img, 0, 0, width, height);
+    } else {
+        console.log("Image not ready");
+    }
+
     for (let p of particles) {
         p.attractedTo(img);
         p.update();
