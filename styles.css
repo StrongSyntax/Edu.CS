@@ -33,6 +33,7 @@ svg {
 }
 
 .tooltip {
+    font-family: 'Lexend', sans-serif;
     position: absolute;
     background-color: #1e1e1e; /* Dark background */
     color: white; /* White text */
@@ -47,6 +48,7 @@ svg {
 }
 
 #sidebar {
+    font-family: 'Lexend', sans-serif;
     position: fixed;
     right: 0;
     top: 0;
@@ -149,10 +151,6 @@ svg {
     display: flex;
     align-items: center;
     margin-bottom: 10px; /* Space between items */
-}
-
-.text-next-to-icon {
-    /* Additional styling as needed */
 }
 
 .item-with-icon {
