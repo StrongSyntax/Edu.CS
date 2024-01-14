@@ -146,11 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
           ]
         }
     };
-    
-    var characterDropdowns = document.getElementById("characterDropdowns");
-    nodes.forEach(character => {
-        characterDropdowns.appendChild(createCharacterDropdown(character));
-    });
 
     var nodes = data.Sociogram.people.map(d => {
       return {
@@ -170,6 +165,12 @@ document.addEventListener('DOMContentLoaded', function() {
           details: link.details 
         };
       });
+    });
+
+    // Move the dropdown creation to after the nodes are defined
+    var characterDropdowns = document.getElementById("characterDropdowns");
+    nodes.forEach(character => {
+        characterDropdowns.appendChild(createCharacterDropdown(character));
     });
   
     var simulation = d3.forceSimulation(nodes)
