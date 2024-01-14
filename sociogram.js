@@ -4,12 +4,11 @@ function createCharacterDropdown(character) {
 
   let button = document.createElement("button");
   button.textContent = character.id;
+  button.className = "dropdown-btn"; // Add class for styling if needed
 
   let dropdownContent = document.createElement("div");
   dropdownContent.className = "dropdown-content";
   dropdownContent.style.maxHeight = "0"; // Start with dropdown content collapsed
-  dropdownContent.style.overflow = "hidden";
-  dropdownContent.style.transition = "max-height 0.5s ease-out"; // Adjust timing as needed
 
   let personality = document.createElement("p");
   personality.textContent = "Personality: " + character.characterInfo;
@@ -25,8 +24,11 @@ function createCharacterDropdown(character) {
 
   // Toggle dropdown content on click
   button.addEventListener('click', function() {
-    let isCollapsed = dropdownContent.style.maxHeight === "0";
-    dropdownContent.style.maxHeight = isCollapsed ? dropdownContent.scrollHeight + "px" : "0";
+    if (dropdownContent.style.maxHeight !== "0") {
+      dropdownContent.style.maxHeight = "0";
+    } else {
+      dropdownContent.style.maxHeight = dropdownContent.scrollHeight + "px";
+    }
   });
 
   return dropdown;

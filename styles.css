@@ -90,13 +90,13 @@ svg {
     cursor: pointer;
     border-radius: 3px;
 }
+
 .dropdown-content {
-    display: none;
-    padding: 10px;
-    background-color: #2A2A2A; /* Slightly lighter than dropdown background */
+    max-height: 0;
+    overflow: hidden;
     transition: max-height 0.5s ease-out;
 }
-
+  
 .sidebar-section {
     background-color: #303030; /* Lighter than main sidebar */
     margin: 10px 0;
