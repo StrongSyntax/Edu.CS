@@ -121,3 +121,12 @@ svg {
 .sidebar-section div {
     padding-top: 10px;
 }
+
+#sidebarTitle {
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+    background-color: #252526; /* You can adjust the color to match your design */
+    border-bottom: 1px solid #444; /* Optional: adds a subtle border line */
+}
