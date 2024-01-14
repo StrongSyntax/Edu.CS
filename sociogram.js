@@ -23,6 +23,22 @@ function createCharacterDropdown(character) {
   return dropdown;
 }
 
+function createSidebarSection(title, content) {
+  let section = document.createElement("div");
+  section.className = "sidebar-section";
+
+  let header = document.createElement("h3");
+  header.textContent = title;
+
+  let body = document.createElement("div");
+  body.innerHTML = content;
+
+  section.appendChild(header);
+  section.appendChild(body);
+
+  return section;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var svg = d3.select("#sociogram").append("svg")
       .attr("width", "100%")
@@ -167,11 +183,36 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Move the dropdown creation to after the nodes are defined
     var characterDropdowns = document.getElementById("characterDropdowns");
     nodes.forEach(character => {
         characterDropdowns.appendChild(createCharacterDropdown(character));
     });
+
+    // Create and add new sections to the sidebar
+    var sidebar = document.getElementById("sidebar");
+
+    // Genre
+    let genreContent = `<strong>Main Genre:</strong> ${data.Genre.MainGenre}<br><strong>Sub Genre:</strong> ${data.Genre.SubGenre}`;
+    sidebar.appendChild(createSidebarSection("Genre", genreContent));
+
+    // Colour Selection
+    sidebar.appendChild(createSidebarSection("Colour Selection", data.ColorSelection));
+
+    // Sound
+    let soundContent = `<strong>Diegetic:</strong> ${data.Sound.Diegetic}<br><strong>Non-Diegetic:</strong> ${data.Sound.NonDiegetic}`;
+    sidebar.appendChild(createSidebarSection("Sound", soundContent));
+
+    // Film Techniques
+    let filmTechniquesContent = data.FilmTechniques.map(tech => `<p>${tech.type}: ${tech.name}</p>`).join('');
+    sidebar.appendChild(createSidebarSection("Film Techniques", filmTechniquesContent));
+
+    // Symbols and Images
+    let symbolsAndImagesContent = data.SymbolsAndImages.map(item => `<p>${item.type}: ${item.name}</p>`).join('');
+    sidebar.appendChild(createSidebarSection("Symbols and Images", symbolsAndImagesContent));
+
+    // Message
+    sidebar.appendChild(createSidebarSection("Message", data.MainMessage));
+
   
     var simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).distance(100))
