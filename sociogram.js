@@ -86,14 +86,19 @@ document.addEventListener('DOMContentLoaded', function() {
         "MainMessage": "The pursuit of greatness and the sacrifices it demands; explores the limits of mentorship and ambition.",
         "Sociogram": {
             "people": [
-                {
-                  "name": "Andrew Neiman",
-                  "connections": [
-                    {"name": "Terence Fletcher", "strength": 9, "details": "Student-Teacher Relationship"},
-                    {"name": "Nicole", "strength": 4, "details": "Romantic Interest"},
-                    {"name": "Jim Neiman", "strength": 6, "details": "Father"},
-                    {"name": "Sean Casey", "strength": 3, "details": "Role Model"}
-                  ]
+                  {
+                    "name": "Andrew Neiman",
+                    "connections": [
+                        {"name": "Terence Fletcher", "strength": 9, "details": "Student-Teacher Relationship"},
+                        {"name": "Nicole", "strength": 4, "details": "Romantic Interest"},
+                        {"name": "Jim Neiman", "strength": 6, "details": "Father"},
+                        {"name": "Sean Casey", "strength": 3, "details": "Role Model"},
+                        {"name": "Travis", "strength": 2, "details": "Fellow Band Member"},
+                        {"name": "Dustin", "strength": 2, "details": "Fellow Band Member"},
+                        {"name": "Uncle Frank", "strength": 1, "details": "Family Member"},
+                        {"name": "Ryan Connolly", "strength": 3, "details": "Competitor"},
+                        {"name": "Carl Tanner", "strength": 3, "details": "Competitor"}
+                    ]
                 },
                 {
                   "name": "Terence Fletcher",
@@ -141,26 +146,26 @@ document.addEventListener('DOMContentLoaded', function() {
                   "name": "Travis",
                   "connections": [
                       {"name": "Terence Fletcher", "strength": 4, "details": "Student under Fletcher's tutelage"},
-                      {"name": "Andrew Neiman", "strength": 3, "details": "Fellow Band Member and Competitor"}
+                      {"name": "Andrew Neiman", "strength": 2, "details": "Fellow Band Member and Competitor"}
                   ]
               },
               {
                   "name": "Dustin",
                   "connections": [
-                      {"name": "Terence Fletcher", "strength": 4, "details": "Student in Fletcher's band"},
+                      {"name": "Terence Fletcher", "strength": 3, "details": "Student in Fletcher's band"},
                       {"name": "Andrew Neiman", "strength": 2, "details": "Fellow Band Member"}
                   ]
               },
               {
                   "name": "Uncle Frank",
                   "connections": [
-                      {"name": "Andrew Neiman", "strength": 2, "details": "Family Member, represents conventional path"}
+                      {"name": "Andrew Neiman", "strength": 1, "details": "Family Member"}
                   ]
               },
               {
                   "name": "Mr. Kramer",
                   "connections": [
-                      {"name": "Andrew Neiman", "strength": 3, "details": "First Chair Conductor, a figure in the music conservatory"}
+                      {"name": "Andrew Neiman", "strength": 2, "details": "Conductor at Conservatory"}
                   ]
               }
           ],
@@ -193,23 +198,30 @@ document.addEventListener('DOMContentLoaded', function() {
               "between": ["Andrew Neiman", "Terence Fletcher"],
               "description": "The scene where Andrew returns to the stage after being sabotaged by Fletcher, showing his resilience and determination."
             },
-                  // Adding entries for new interactions
             {
-                "between": ["Travis", "Andrew Neiman"],
-                "description": "Competitive tension and interaction as fellow band members."
-            },
-            {
-                "between": ["Dustin", "Andrew Neiman"],
-                "description": "Background interactions reflecting band dynamics."
-            },
-            {
-                "between": ["Uncle Frank", "Andrew Neiman"],
-                "description": "Contrasting life views and expectations during family interactions."
-            },
-            {
-                "between": ["Mr. Kramer", "Andrew Neiman"],
-                "description": "Mr. Kramer's brief but impactful interactions with Andrew in the conservatory setting."
-            }
+              "between": ["Andrew Neiman", "Travis"],
+              "description": "Competitive tension and subtle rivalry as fellow band members under Fletcher's direction."
+          },
+          {
+              "between": ["Andrew Neiman", "Dustin"],
+              "description": "Background interactions, reflecting the dynamics and competitiveness within the band."
+          },
+          {
+              "between": ["Andrew Neiman", "Uncle Frank"],
+              "description": "Conversations reflecting contrasting life views, highlighting the family's conventional expectations versus Andrew's musical ambition."
+          },
+          {
+              "between": ["Andrew Neiman", "Mr. Kramer"],
+              "description": "Interaction during a practice session, showcasing the pressures and expectations of the conservatory environment."
+          },
+          {
+              "between": ["Terence Fletcher", "Travis"],
+              "description": "Moments of Fletcher's teaching, reflecting his impact on different students, including Travis."
+          },
+          {
+              "between": ["Terence Fletcher", "Dustin"],
+              "description": "Scenes showing Fletcher's interactions with various band members, including Dustin, highlighting the intense pressure on all students."
+          }
 
           ]
         }
