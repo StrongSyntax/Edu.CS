@@ -104,11 +104,22 @@ svg {
     border-radius: 5px;
     margin-bottom: 20px; /* Add some space between sections */
 }
+/* Title of each section in the sidebar */
 .sidebar-section h3 {
-    margin-top: 0;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #444;
-}
+    font-size: 1.5em; /* Adjust the size as needed */
+    font-family: 'Lexend', sans-serif;
+    font-weight: 700; /* Lexend bold */
+  }
+  
+  /* Descriptions and smaller text in the sidebar */
+  .sidebar-section .description {
+    font-size: 1em; /* Adjust the size as needed */
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400; /* Lexend regular */
+  }
+  
+  /* Ensure the Lexend font is loaded in your HTML or CSS */
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
 
 
 .sidebar-section div {
