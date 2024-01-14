@@ -47,15 +47,23 @@ document.addEventListener('DOMContentLoaded', function() {
   var g = svg.append("g");
 
     var data = {
-        "CharacterDevelopment": {
-            "MainCharacters": {
-                "AndrewNeiman": "Starts as ambitious and naive, becomes more obsessive and resilient.",
-                "TerenceFletcher": "Remains consistently harsh, but shows depth and eventual respect for Andrew's talent."
-            },
-            "SupportingCharacters": {
-                "Nicole": "Represents Andrew's personal sacrifices for his music career."
-            }
+      "CharacterDevelopment": {
+        "MainCharacters": {
+            "AndrewNeiman": "Starts as ambitious and naive, becomes more obsessive and resilient. His journey is marked by a relentless pursuit of perfection in his drumming, often at the cost of personal relationships and mental well-being.",
+            "TerenceFletcher": "Remains consistently harsh and intimidating. A complex character who believes in pushing students to their limits to achieve greatness, showing a mixture of ruthlessness and motivational tactics."
         },
+        "SupportingCharacters": {
+            "Nicole": "Represents Andrew's personal sacrifices for his music career. She is a symbol of the normal life and relationships that Andrew gives up for his ambition.",
+            "Jim Neiman": "Andrew's father, supportive yet worried about Andrew's obsessive dedication to music. He represents the softer side of life that Andrew is moving away from.",
+            "Ryan Connolly": "A talented drummer who competes with Andrew for the core spot. His character contrasts Andrew's, showing a different approach to dealing with pressure.",
+            "Carl Tanner": "Another drummer who faces Fletcher's harsh methods. His character highlights the high-pressure environment of the music conservatory.",
+            "Sean Casey": "A former student of Fletcher, revered by Andrew. His character adds depth to Fletcher's teaching impact and the competitive atmosphere in the music world.",
+            "Travis": "Part of Fletcher's band, facing similar pressures as Andrew. His interactions reflect the competitiveness and tension among the students.",
+            "Dustin": "Another student in Fletcher's band, often in the background but part of the overall dynamic within the group.",
+            "Uncle Frank": "Andrew's uncle, representing the family's more conventional expectations and contrasting with Andrew's intense musical pursuit.",
+            "Mr. Kramer": "The first chair conductor, showcasing another facet of the musical institution and its impact on Andrew's journey."
+        }
+    },
         "Genre": {
             "MainGenre": "Drama - Focus on personal and moral conflicts of a young musician.",
             "SubGenre": "Music - Revolves around a music conservatory and jazz drumming."
@@ -128,8 +136,34 @@ document.addEventListener('DOMContentLoaded', function() {
                     {"name": "Terence Fletcher", "strength": 4, "details": "Former Student"},
                     {"name": "Andrew Neiman", "strength": 3, "details": "Admirer"}
                   ]
-                }
-              ],
+                },
+                {
+                  "name": "Travis",
+                  "connections": [
+                      {"name": "Terence Fletcher", "strength": 4, "details": "Student under Fletcher's tutelage"},
+                      {"name": "Andrew Neiman", "strength": 3, "details": "Fellow Band Member and Competitor"}
+                  ]
+              },
+              {
+                  "name": "Dustin",
+                  "connections": [
+                      {"name": "Terence Fletcher", "strength": 4, "details": "Student in Fletcher's band"},
+                      {"name": "Andrew Neiman", "strength": 2, "details": "Fellow Band Member"}
+                  ]
+              },
+              {
+                  "name": "Uncle Frank",
+                  "connections": [
+                      {"name": "Andrew Neiman", "strength": 2, "details": "Family Member, represents conventional path"}
+                  ]
+              },
+              {
+                  "name": "Mr. Kramer",
+                  "connections": [
+                      {"name": "Andrew Neiman", "strength": 3, "details": "First Chair Conductor, a figure in the music conservatory"}
+                  ]
+              }
+          ],
           "important_interactions": [
             {
               "between": ["Terence Fletcher", "Carl Tanner"],
@@ -158,7 +192,25 @@ document.addEventListener('DOMContentLoaded', function() {
             {
               "between": ["Andrew Neiman", "Terence Fletcher"],
               "description": "The scene where Andrew returns to the stage after being sabotaged by Fletcher, showing his resilience and determination."
+            },
+                  // Adding entries for new interactions
+            {
+                "between": ["Travis", "Andrew Neiman"],
+                "description": "Competitive tension and interaction as fellow band members."
+            },
+            {
+                "between": ["Dustin", "Andrew Neiman"],
+                "description": "Background interactions reflecting band dynamics."
+            },
+            {
+                "between": ["Uncle Frank", "Andrew Neiman"],
+                "description": "Contrasting life views and expectations during family interactions."
+            },
+            {
+                "between": ["Mr. Kramer", "Andrew Neiman"],
+                "description": "Mr. Kramer's brief but impactful interactions with Andrew in the conservatory setting."
             }
+
           ]
         }
     };
