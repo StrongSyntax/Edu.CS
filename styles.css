@@ -93,9 +93,9 @@ svg {
     padding: 10px;
     background-color: #2A2A2A; /* Slightly lighter than dropdown background */
 }
-.dropdown:hover .dropdown-content {
+/* .dropdown:hover .dropdown-content {
     display: block;
-}
+} */
 
 
 .sidebar-section {
