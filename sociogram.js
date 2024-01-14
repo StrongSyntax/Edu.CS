@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create and add new sections to the sidebar
     var sidebar = document.getElementById("sidebar");
-    var iconFolderPath = 'path_to_your_icons_folder/'; // Replace with your icons folder path
+    var iconFolderPath = 'assets/images'; // Replace with your icons folder path
 
     // Film Techniques Section with Icons
     let filmTechniquesSection = document.createElement("div");
@@ -371,6 +371,25 @@ document.addEventListener('DOMContentLoaded', function() {
       .attr("height", 32)
       .on("error", function() { d3.select(this).remove(); });
   
+    // Create sidebar sections with icons
+function createSidebarSectionWithIcons(title, items, iconFolderPath) {
+    let section = document.createElement("div");
+    section.className = "sidebar-section";
+
+    let header = document.createElement("h3");
+    header.textContent = title;
+    section.appendChild(header);
+
+    items.forEach(item => {
+        let itemWithIcon = createItemWithIcon(item, iconFolderPath);
+        if (itemWithIcon) {
+            section.appendChild(itemWithIcon);
+        }
+    });
+
+    return section;
+}
+
     var tooltip = d3.select("#tooltip");
   
     // Function to show tooltip for nodes
