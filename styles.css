@@ -94,11 +94,8 @@ svg {
     display: none;
     padding: 10px;
     background-color: #2A2A2A; /* Slightly lighter than dropdown background */
+    transition: max-height 0.5s ease-out;
 }
-/* .dropdown:hover .dropdown-content {
-    display: block;
-} */
-
 
 .sidebar-section {
     background-color: #303030; /* Lighter than main sidebar */
@@ -140,8 +137,9 @@ svg {
     width: 128px;
     height: 128px;
     margin-right: 10px; /* Add some space between the icon and the text */
+    filter: brightness(1000%); /* Adjust the percentage as needed */
 }
-
+  
 .description {
     flex: 1;
     /* Your existing styles... */

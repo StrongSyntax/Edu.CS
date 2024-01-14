@@ -7,6 +7,9 @@ function createCharacterDropdown(character) {
 
   let dropdownContent = document.createElement("div");
   dropdownContent.className = "dropdown-content";
+  dropdownContent.style.maxHeight = "0"; // Start with dropdown content collapsed
+  dropdownContent.style.overflow = "hidden";
+  dropdownContent.style.transition = "max-height 0.5s ease-out"; // Adjust timing as needed
 
   let personality = document.createElement("p");
   personality.textContent = "Personality: " + character.characterInfo;
@@ -22,7 +25,8 @@ function createCharacterDropdown(character) {
 
   // Toggle dropdown content on click
   button.addEventListener('click', function() {
-      dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+    let isCollapsed = dropdownContent.style.maxHeight === "0";
+    dropdownContent.style.maxHeight = isCollapsed ? dropdownContent.scrollHeight + "px" : "0";
   });
 
   return dropdown;
@@ -419,10 +423,11 @@ function createSidebarSectionWithIcons(title, items, iconFolderPath) {
   
     // Function to show tooltip for nodes
     function showNodeTooltip(event, d) {
-      // Extract personality information
-      let personalityInfo = data.CharacterDevelopment.MainCharacters[d.id] || 
-                            data.CharacterDevelopment.SupportingCharacters[d.id] || 
-                            "Personality details not available";
+
+      // Inside showNodeTooltip function or wherever you set the tooltip's HTML content
+    let personalityInfo = data.CharacterDevelopment.MainCharacters[d.id.replace(/\s/g, '')] || 
+    data.CharacterDevelopment.SupportingCharacters[d.id.replace(/\s/g, '')] || 
+    "Personality details not available";
 
       // Format connections information as list items
       let connectionsInfo = "<ul>" + d.connections.map(c => `<li>${c.name} (${c.details})</li>`).join('') + "</ul>";
