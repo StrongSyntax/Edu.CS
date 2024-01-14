@@ -80,10 +80,16 @@ document.addEventListener('DOMContentLoaded', function() {
             "NonDiegetic": "Jazz Soundtrack - Sets the tone and mood, enhancing the emotional context."
         },
         "FilmTechniques": [
-            {"type": "Shot", "name": "Close-Up Shots"},
-            {"type": "Transition", "name": "Match Cuts"},
-            {"type": "Sound", "name": "Digetic"}
-        ],
+          {"type": "Shot", "name": "Close-Up Shots", "description": "Used frequently to capture the intensity of characters' emotions, particularly during musical performances."},
+          {"type": "Transition", "name": "Match Cuts", "description": "Seamlessly connects scenes to illustrate parallels or transitions in the story, often aligning with the rhythm of the music."},
+          {"type": "Sound", "name": "Diegetic Sound", "description": "Includes actual sounds of instruments and environment, crucial for immersing the audience in the musical setting."},
+          {"type": "Editing", "name": "Fast-paced Editing", "description": "Mirrors the tempo of jazz music and reflects the urgency and tension in the narrative."},
+          {"type": "Camera Movement", "name": "Whip Pans", "description": "Quick camera movements that add to the dynamic and fast-paced nature of the film."},
+          {"type": "Lighting", "name": "High Contrast Lighting", "description": "Creates dramatic shadows and highlights, emphasizing the emotional depth and conflict."},
+          {"type": "Sound", "name": "Non-Diegetic Score", "description": "Jazz compositions that enhance the mood and underscore the thematic elements of the film."},
+          {"type": "Symbolism", "name": "Visual Motifs", "description": "Recurring visual elements like drumsticks and blood which symbolize dedication and sacrifice."},
+          {"type": "Color Scheme", "name": "Muted Color Palette", "description": "Reflects the serious and intense atmosphere of the music conservatory and the world of jazz."}
+      ],
         "SymbolsAndImages": [
           {"type": "Object", "name": "Drum Sticks", "description": "Represent Andrew's passion for drumming and his relentless pursuit of perfection."},
           {"type": "Object", "name": "Blood on Drum Set", "description": "Symbolizes the physical and emotional toll of Andrew's quest for greatness."},
