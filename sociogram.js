@@ -55,6 +55,7 @@ function createItemWithIcon(item, iconFolderPath) {
       "Lighting": "Lighting_Icon.png",
       "Symbolism": "Symbolism_Icon.png",
       "Color Scheme": "Color_Pallete_Icon.png",
+      "Scene": "Scene_Icon.png",
       // Add other mappings as necessary
   
   };
@@ -381,6 +382,19 @@ document.addEventListener('DOMContentLoaded', function() {
       .attr("width", 32)
       .attr("height", 32)
       .on("error", function() { d3.select(this).remove(); });
+
+    var characterDropdowns = document.getElementById("characterDropdowns");
+    
+    if (!characterDropdowns) {
+      console.error("The container for character dropdowns was not found.");
+      return;
+    }
+
+    nodes.forEach(character => {
+      var dropdown = createCharacterDropdown(character);
+      characterDropdowns.appendChild(dropdown);
+      console.log("Added dropdown for:", character.id); // This should log for each character
+    });
   
     // Create sidebar sections with icons
 function createSidebarSectionWithIcons(title, items, iconFolderPath) {
