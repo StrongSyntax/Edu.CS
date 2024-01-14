@@ -18,7 +18,7 @@ body {
     align-items: center;
     width: 100%; /* Full width of the parent */
     height: 100%; /* Full height of the parent */
-    background: linear-gradient(to right, #3a1a00, #111111);
+    background: linear-gradient(to right, #180b00, #000000);
 }
 
 svg {
