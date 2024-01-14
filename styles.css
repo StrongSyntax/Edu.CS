@@ -18,7 +18,7 @@ body {
     align-items: center;
     width: 100%; /* Full width of the parent */
     height: 100%; /* Full height of the parent */
-    background-color: #000000; /* Same background color */
+    background: linear-gradient(to right, #333, #1a1a1a);
 }
 
 svg {
@@ -149,4 +149,14 @@ svg {
     display: flex;
     align-items: center;
     margin-bottom: 10px; /* Space between items */
+}
+
+.text-next-to-icon {
+    /* Additional styling as needed */
+}
+
+.item-with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust as needed */
 }

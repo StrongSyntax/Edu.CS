@@ -56,6 +56,7 @@ function createItemWithIcon(item, iconFolderPath) {
       "Symbolism": "Symbolism_Icon.png",
       "Color Scheme": "Color_Pallete_Icon.png",
       // Add other mappings as necessary
+  
   };
 
   let iconFileName = typeToIconMap[item.type];
@@ -65,19 +66,21 @@ function createItemWithIcon(item, iconFolderPath) {
   }
 
   let itemDiv = document.createElement('div');
-  itemDiv.className = 'item';
+  itemDiv.className = 'item-with-icon';
 
   let iconImg = document.createElement('img');
-  iconImg.src = iconFolderPath + iconFileName;
+  iconImg.src = iconFolderPath + '/' + iconFileName; // Make sure path is correct
   iconImg.alt = item.type + ' Icon';
   iconImg.className = 'icon';
+  iconImg.style.width = '128px'; // Set icon size
+  iconImg.style.height = '128px';
 
-  let descriptionDiv = document.createElement('div');
-  descriptionDiv.className = 'description';
-  descriptionDiv.innerHTML = `<strong>${item.name}</strong><p>${item.description}</p>`;
+  let textDiv = document.createElement('div');
+  textDiv.className = 'text-next-to-icon';
+  textDiv.innerHTML = `<strong>${item.name}</strong><p>${item.description}</p>`;
 
-  itemDiv.appendChild(iconImg);
-  itemDiv.appendChild(descriptionDiv);
+  itemDiv.appendChild(textDiv);
+  itemDiv.appendChild(iconImg); // Icon to the right
 
   return itemDiv;
 }
@@ -301,36 +304,40 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Existing code to create character dropdowns
-    var characterDropdowns = document.getElementById("characterDropdowns");
-    nodes.forEach(character => {
-        characterDropdowns.appendChild(createCharacterDropdown(character));
-    });
-
     // Create and add new sections to the sidebar
     var sidebar = document.getElementById("sidebar");
-    var iconFolderPath = 'assets/images'; // Replace with your icons folder path
+    var iconFolderPath = 'assets/images/'; // Make sure this path is correct
 
     // Film Techniques Section with Icons
     let filmTechniquesSection = document.createElement("div");
     filmTechniquesSection.className = "sidebar-section";
-    filmTechniquesSection.appendChild(createSidebarSection("Film Techniques", ""));
+    let filmTechniquesHeader = document.createElement("h3");
+    filmTechniquesHeader.textContent = "Film Techniques";
+    filmTechniquesSection.appendChild(filmTechniquesHeader);
+
     data.FilmTechniques.forEach(technique => {
-        filmTechniquesSection.appendChild(createItemWithIcon(technique, iconFolderPath));
+        let itemElement = createItemWithIcon(technique, iconFolderPath);
+        if (itemElement) {
+            filmTechniquesSection.appendChild(itemElement);
+        }
     });
     sidebar.appendChild(filmTechniquesSection);
 
     // Symbols and Images Section with Icons
     let symbolsAndImagesSection = document.createElement("div");
     symbolsAndImagesSection.className = "sidebar-section";
-    symbolsAndImagesSection.appendChild(createSidebarSection("Symbols and Images", ""));
+    let symbolsAndImagesHeader = document.createElement("h3");
+    symbolsAndImagesHeader.textContent = "Symbols and Images";
+    symbolsAndImagesSection.appendChild(symbolsAndImagesHeader);
+
     data.SymbolsAndImages.forEach(symbol => {
-      let itemElement = createItemWithIcon(symbol, iconFolderPath);
-      if (itemElement) {
-          symbolsAndImagesSection.appendChild(itemElement);
-      }
+        let itemElement = createItemWithIcon(symbol, iconFolderPath);
+        if (itemElement) {
+            symbolsAndImagesSection.appendChild(itemElement);
+        }
     });
     sidebar.appendChild(symbolsAndImagesSection);
+
 
     // Genre
     let genreContent = `<strong>Main Genre:</strong> ${data.Genre.MainGenre}<br><strong>Sub Genre:</strong> ${data.Genre.SubGenre}`;
