@@ -1,3 +1,28 @@
+function createCharacterDropdown(character) {
+  let dropdown = document.createElement("div");
+  dropdown.className = "dropdown";
+
+  let button = document.createElement("button");
+  button.textContent = character.id;
+
+  let dropdownContent = document.createElement("div");
+  dropdownContent.className = "dropdown-content";
+
+  let personality = document.createElement("p");
+  personality.textContent = "Personality: " + character.characterInfo;
+
+  let connections = document.createElement("p");
+  connections.innerHTML = "Connections:<ul>" + character.connections.map(c => `<li>${c.name} (${c.details})</li>`).join('') + "</ul>";
+
+  dropdownContent.appendChild(personality);
+  dropdownContent.appendChild(connections);
+
+  dropdown.appendChild(button);
+  dropdown.appendChild(dropdownContent);
+
+  return dropdown;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var svg = d3.select("#sociogram").append("svg")
       .attr("width", "100%")
@@ -122,6 +147,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
+    var characterDropdowns = document.getElementById("characterDropdowns");
+    nodes.forEach(character => {
+        characterDropdowns.appendChild(createCharacterDropdown(character));
+    });
+
     var nodes = data.Sociogram.people.map(d => {
       return {
         id: d.name, 
