@@ -103,6 +103,7 @@ svg {
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 20px; /* Add some space between sections */
 }
 .sidebar-section h3 {
     margin-top: 0;
@@ -136,6 +137,16 @@ svg {
 .icon {
     width: 128px;
     height: 128px;
-    /* Additional styling if needed, like margin or alignment */
+    margin-right: 10px; /* Add some space between the icon and the text */
 }
 
+.description {
+    flex: 1;
+    /* Your existing styles... */
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Space between items */
+}
