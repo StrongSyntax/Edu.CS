@@ -85,10 +85,15 @@ document.addEventListener('DOMContentLoaded', function() {
             {"type": "Sound", "name": "Digetic"}
         ],
         "SymbolsAndImages": [
-            {"type": "Object", "name": "Drum Sticks"},
-            {"type": "Example", "name": "Example"},
-            {"type": "Example", "name": "Example"}
-        ],
+          {"type": "Object", "name": "Drum Sticks", "description": "Represent Andrew's passion for drumming and his relentless pursuit of perfection."},
+          {"type": "Object", "name": "Blood on Drum Set", "description": "Symbolizes the physical and emotional toll of Andrew's quest for greatness."},
+          {"type": "Object", "name": "Sheet Music", "description": "Represents the structure and rigor of the jazz music world, as well as the challenges Andrew faces."},
+          {"type": "Scene", "name": "Solo Performance", "description": "Embodies Andrew's transformation and ultimate defiance against Fletcher's authority."},
+          {"type": "Object", "name": "Metronome", "description": "Represents precision, timing, and the intense pressure of achieving rhythmic perfection."},
+          {"type": "Scene", "name": "Car Accident", "description": "Illustrates the extreme lengths to which Andrew goes for his art, sacrificing his safety and well-being."},
+          {"type": "Scene", "name": "Final Concert", "description": "A climax scene reflecting Andrew's breakthrough and Fletcher's complex character revelation."},
+          {"type": "Object", "name": "Music Conservatory Setting", "description": "Represents the high-pressure environment where talent and ambition are both nurtured and tested."}
+      ],
         "MainMessage": "The pursuit of greatness and the sacrifices it demands; explores the limits of mentorship and ambition.",
         "Sociogram": {
             "people": [
