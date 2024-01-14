@@ -132,3 +132,10 @@ svg {
         position: relative;
     }
 }
+
+.icon {
+    width: 128px;
+    height: 128px;
+    /* Additional styling if needed, like margin or alignment */
+}
+

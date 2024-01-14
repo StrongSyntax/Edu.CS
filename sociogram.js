@@ -28,7 +28,6 @@ function createCharacterDropdown(character) {
   return dropdown;
 }
 
-
 function createSidebarSection(title, content) {
   let section = document.createElement("div");
   section.className = "sidebar-section";
@@ -43,6 +42,43 @@ function createSidebarSection(title, content) {
   section.appendChild(body);
 
   return section;
+}
+
+function createItemWithIcon(item, iconFolderPath) {
+  let typeToIconMap = {
+      "Shot": "Shot_Icon.png",
+      "Transition": "Transition_Icon.png",
+      "Sound": "Sound_Icon.png",
+      "Editing": "Editing_Icon.png",
+      "Camera Movement": "Camera_Movement_Icon.png",
+      "Lighting": "Lighting_Icon.png",
+      "Symbolism": "Symbolism_Icon.png",
+      "Color Scheme": "Color_Pallete_Icon.png",
+      // Add other mappings as necessary
+  };
+
+  let iconFileName = typeToIconMap[item.type];
+  if (!iconFileName) {
+      console.error("Icon not found for type:", item.type);
+      return null;
+  }
+
+  let itemDiv = document.createElement('div');
+  itemDiv.className = 'item';
+
+  let iconImg = document.createElement('img');
+  iconImg.src = iconFolderPath + iconFileName;
+  iconImg.alt = item.type + ' Icon';
+  iconImg.className = 'icon';
+
+  let descriptionDiv = document.createElement('div');
+  descriptionDiv.className = 'description';
+  descriptionDiv.innerHTML = `<strong>${item.name}</strong><p>${item.description}</p>`;
+
+  itemDiv.appendChild(iconImg);
+  itemDiv.appendChild(descriptionDiv);
+
+  return itemDiv;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -264,6 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
+    // Existing code to create character dropdowns
     var characterDropdowns = document.getElementById("characterDropdowns");
     nodes.forEach(character => {
         characterDropdowns.appendChild(createCharacterDropdown(character));
@@ -271,6 +308,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create and add new sections to the sidebar
     var sidebar = document.getElementById("sidebar");
+    var iconFolderPath = 'path_to_your_icons_folder/'; // Replace with your icons folder path
+
+    // Film Techniques Section with Icons
+    let filmTechniquesSection = document.createElement("div");
+    filmTechniquesSection.className = "sidebar-section";
+    filmTechniquesSection.appendChild(createSidebarSection("Film Techniques", ""));
+    data.FilmTechniques.forEach(technique => {
+        filmTechniquesSection.appendChild(createItemWithIcon(technique, iconFolderPath));
+    });
+    sidebar.appendChild(filmTechniquesSection);
+
+    // Symbols and Images Section with Icons
+    let symbolsAndImagesSection = document.createElement("div");
+    symbolsAndImagesSection.className = "sidebar-section";
+    symbolsAndImagesSection.appendChild(createSidebarSection("Symbols and Images", ""));
+    data.SymbolsAndImages.forEach(symbol => {
+        symbolsAndImagesSection.appendChild(createItemWithIcon(symbol, iconFolderPath));
+    });
+    sidebar.appendChild(symbolsAndImagesSection);
 
     // Genre
     let genreContent = `<strong>Main Genre:</strong> ${data.Genre.MainGenre}<br><strong>Sub Genre:</strong> ${data.Genre.SubGenre}`;
@@ -283,18 +339,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let soundContent = `<strong>Diegetic:</strong> ${data.Sound.Diegetic}<br><strong>Non-Diegetic:</strong> ${data.Sound.NonDiegetic}`;
     sidebar.appendChild(createSidebarSection("Sound", soundContent));
 
-    // Film Techniques
-    let filmTechniquesContent = data.FilmTechniques.map(tech => `<p>${tech.type}: ${tech.name}</p>`).join('');
-    sidebar.appendChild(createSidebarSection("Film Techniques", filmTechniquesContent));
-
-    // Symbols and Images
-    let symbolsAndImagesContent = data.SymbolsAndImages.map(item => `<p>${item.type}: ${item.name}</p>`).join('');
-    sidebar.appendChild(createSidebarSection("Symbols and Images", symbolsAndImagesContent));
-
     // Message
     sidebar.appendChild(createSidebarSection("Message", data.MainMessage));
 
-  
     var simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).distance(100))
         .force("charge", d3.forceManyBody().strength(-300))
