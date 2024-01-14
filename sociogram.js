@@ -46,6 +46,7 @@ function createSidebarSection(title, content) {
 
 function createItemWithIcon(item, iconFolderPath) {
   let typeToIconMap = {
+      "Object": "Object_Icon.png", // Assuming you have an icon named "Object_Icon.png"
       "Shot": "Shot_Icon.png",
       "Transition": "Transition_Icon.png",
       "Sound": "Sound_Icon.png",
@@ -324,7 +325,10 @@ document.addEventListener('DOMContentLoaded', function() {
     symbolsAndImagesSection.className = "sidebar-section";
     symbolsAndImagesSection.appendChild(createSidebarSection("Symbols and Images", ""));
     data.SymbolsAndImages.forEach(symbol => {
-        symbolsAndImagesSection.appendChild(createItemWithIcon(symbol, iconFolderPath));
+      let itemElement = createItemWithIcon(symbol, iconFolderPath);
+      if (itemElement) {
+          symbolsAndImagesSection.appendChild(itemElement);
+      }
     });
     sidebar.appendChild(symbolsAndImagesSection);
 
