@@ -91,20 +91,11 @@ svg {
     border-radius: 3px;
 }
 
-/* Make sure your CSS file is linked in your HTML file */
 .dropdown-content {
-    font-family: 'Lexend', sans-serif; /* Apply Lexend font */
-  }
-  
-  .dropdown-content p {
-    font-size: 0.9em; /* Smaller font size for paragraphs */
-    font-weight: 400; /* Regular font weight */
-  }
-  
-  .dropdown-content strong {
-    font-size: 1.2em; /* Larger font size for strong elements */
-    font-weight: 700; /* Bold font weight */
-  }
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
   
 .sidebar-section {
     background-color: #303030; /* Lighter than main sidebar */
@@ -113,22 +104,11 @@ svg {
     border-radius: 5px;
     margin-bottom: 20px; /* Add some space between sections */
 }
-/* Title of each section in the sidebar */
 .sidebar-section h3 {
-    font-size: 1.5em; /* Adjust the size as needed */
-    font-family: 'Lexend', sans-serif;
-    font-weight: 700; /* Lexend bold */
-  }
-  
-  /* Descriptions and smaller text in the sidebar */
-  .sidebar-section .description {
-    font-size: 1em; /* Adjust the size as needed */
-    font-family: 'Lexend', sans-serif;
-    font-weight: 400; /* Lexend regular */
-  }
-  
-  /* Ensure the Lexend font is loaded in your HTML or CSS */
-  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
+    margin-top: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #444;
+}
 
 
 .sidebar-section div {
