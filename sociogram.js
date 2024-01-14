@@ -20,8 +20,14 @@ function createCharacterDropdown(character) {
   dropdown.appendChild(button);
   dropdown.appendChild(dropdownContent);
 
+  // Toggle dropdown content on click
+  button.addEventListener('click', function() {
+      dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+  });
+
   return dropdown;
 }
+
 
 function createSidebarSection(title, content) {
   let section = document.createElement("div");
