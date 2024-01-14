@@ -502,13 +502,4 @@ window.addEventListener('resize', function() {
   d3.select("#sociogram svg")
       .attr("width", newWidth)
       .attr("height", newHeight);
-  });
-
-window.addEventListener('resize', function() {
-  var newWidth = window.innerWidth;
-  var newHeight = window.innerHeight;
-
-  svg.attr("width", newWidth)
-     .attr("height", newHeight);
 });
-
