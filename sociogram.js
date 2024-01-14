@@ -86,6 +86,10 @@ function createItemWithIcon(item, iconFolderPath) {
   let descriptionDiv = document.createElement('div');
   descriptionDiv.className = 'item-description';
   descriptionDiv.textContent = item.description;
+  
+  // ... append titleDiv and descriptionDiv to the container
+  
+  return itemDiv;
 
   itemDiv.appendChild(textDiv);
   itemDiv.appendChild(iconImg); // Icon to the right
