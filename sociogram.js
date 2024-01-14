@@ -455,9 +455,6 @@ function createSidebarSectionWithIcons(title, items, iconFolderPath) {
 
     document.addEventListener('keydown', handleKeyDown);
 });
-
-    svg.call(zoom).on("dblclick.zoom", null);
-
     // Function to handle key down events
 function handleKeyDown(event) {
   var scale = d3.zoomTransform(svg.node()).k;
