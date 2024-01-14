@@ -79,9 +79,13 @@ function createItemWithIcon(item, iconFolderPath) {
   iconImg.style.width = '128px'; // Set icon size
   iconImg.style.height = '128px';
 
-  let textDiv = document.createElement('div');
-  textDiv.className = 'text-next-to-icon';
-  textDiv.innerHTML = `<strong>${item.name}</strong><p>${item.description}</p>`;
+  let titleDiv = document.createElement('div');
+  titleDiv.className = 'item-title';
+  titleDiv.textContent = item.name;
+  
+  let descriptionDiv = document.createElement('div');
+  descriptionDiv.className = 'item-description';
+  descriptionDiv.textContent = item.description;
 
   itemDiv.appendChild(textDiv);
   itemDiv.appendChild(iconImg); // Icon to the right

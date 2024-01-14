@@ -91,11 +91,20 @@ svg {
     border-radius: 3px;
 }
 
+/* Make sure your CSS file is linked in your HTML file */
 .dropdown-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
-}
+    font-family: 'Lexend', sans-serif; /* Apply Lexend font */
+  }
+  
+  .dropdown-content p {
+    font-size: 0.9em; /* Smaller font size for paragraphs */
+    font-weight: 400; /* Regular font weight */
+  }
+  
+  .dropdown-content strong {
+    font-size: 1.2em; /* Larger font size for strong elements */
+    font-weight: 700; /* Bold font weight */
+  }
   
 .sidebar-section {
     background-color: #303030; /* Lighter than main sidebar */
