@@ -45,6 +45,8 @@ svg {
     font-family: 'Lexend', sans-serif; /* Use Lexend font */
     font-size: 14px; /* Adjust font size as needed */
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Soft white glow */
+    max-width: 250px; /* Set a max-width for the tooltip */
+    word-wrap: break-word; /* Allows long words to be broken and wrap onto the next line */
 }
 
 #sidebar {
@@ -155,4 +157,15 @@ svg {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Adjust as needed */
+}
+
+.dropdown-btn {
+    font-family: 'Lexend Bold', sans-serif;
+    font-size: 1.2rem; /* Adjust the size as needed */
+    border-radius: 5px; /* Rounded corners for the buttons */
+}
+
+.dropdown-content p,
+.dropdown-content li {
+    font-family: 'Lexend Regular', sans-serif; /* Assuming 'Lexend Regular' is available on your system */
 }

@@ -68,7 +68,7 @@ function createItemWithIcon(item, iconFolderPath) {
       console.error("Icon not found for type:", item.type);
       return null;
   }
-
+ 
   let itemDiv = document.createElement('div');
   itemDiv.className = 'item-with-icon';
 
@@ -422,21 +422,19 @@ function createSidebarSectionWithIcons(title, items, iconFolderPath) {
   
     // Function to show tooltip for nodes
     function showNodeTooltip(event, d) {
-
-      // Inside showNodeTooltip function or wherever you set the tooltip's HTML content
-    let personalityInfo = data.CharacterDevelopment.MainCharacters[d.id.replace(/\s/g, '')] || 
-    data.CharacterDevelopment.SupportingCharacters[d.id.replace(/\s/g, '')] || 
-    "Personality details not available";
-
+      // Extract personality information
+      let personalityInfo = data.CharacterDevelopment.MainCharacters[d.id] || 
+                            data.CharacterDevelopment.SupportingCharacters[d.id] || 
+                            "Personality details not available";
+  
       // Format connections information as list items
       let connectionsInfo = "<ul>" + d.connections.map(c => `<li>${c.name} (${c.details})</li>`).join('') + "</ul>";
-
+  
       tooltip.html(`<strong>${d.id}</strong><br/>Personality: ${personalityInfo}<br/>Connections: ${connectionsInfo}`)
           .style("left", (event.pageX + 10) + "px")
           .style("top", (event.pageY - 10) + "px")
           .style("visibility", "visible");
-    }
-
+  }
     // Add tooltip functionality to nodes
     node.on("mouseover", showNodeTooltip)
       .on("mouseout", function() {
