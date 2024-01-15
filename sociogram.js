@@ -423,27 +423,34 @@ function createSidebarSectionWithIcons(title, items, iconFolderPath) {
     var tooltip = d3.select("#tooltip");
   
     function showNodeTooltip(event, d) {
-      let tooltipWidth = 250; // Width of your tooltip
-      let pageWidth = document.documentElement.clientWidth;
-      let tooltipX = event.pageX + 10;
-      let tooltipY = event.pageY - 10;
-    
-      // Check if the tooltip would go off the right edge of the page
-      if (tooltipX + tooltipWidth > pageWidth) {
-        tooltipX = pageWidth - tooltipWidth - 10; // Adjust X position to fit in the page
-      }
-    
+      // Extract personality information
       let personalityInfo = data.CharacterDevelopment.MainCharacters[d.id] || 
-        data.CharacterDevelopment.SupportingCharacters[d.id] || 
-        "Personality details not available";
+                            data.CharacterDevelopment.SupportingCharacters[d.id] || 
+                            "Personality details not available";
     
+      // Format connections information as list items
       let connectionsInfo = "<ul>" + d.connections.map(c => `<li>${c.name} (${c.details})</li>`).join('') + "</ul>";
     
+      // Calculate the tooltip's top position
+      let topPosition = event.pageY - 10;
+      
+      // Get the height of the tooltip
+      let tooltipHeight = tooltip.node().getBoundingClientRect().height;
+    
+      // Get the window height
+      let windowHeight = window.innerHeight;
+    
+      // Check if the tooltip goes offscreen and adjust its top position if necessary
+      if (topPosition + tooltipHeight > windowHeight) {
+        topPosition = windowHeight - tooltipHeight - 10; // Adjust to bring the tooltip above the cursor
+      }
+    
       tooltip.html(`<strong>${d.id}</strong><br/>Personality: ${personalityInfo}<br/>Connections: ${connectionsInfo}`)
-        .style("left", `${tooltipX}px`)
-        .style("top", `${tooltipY}px`)
-        .style("visibility", "visible");
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (topPosition) + "px")
+          .style("visibility", "visible");
     }
+    
     
     // Add tooltip functionality to nodes
     node.on("mouseover", showNodeTooltip)
