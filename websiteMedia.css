@@ -1,39 +1,57 @@
 body {
     font-family: 'Lexend', sans-serif;
+    background-color: #1e1e1e; /* VS Code dark theme background color */
+    color: #d4d4d4; /* VS Code dark theme text color */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 header {
-    background-color: #333;
+    width: 100%;
     color: white;
+}
+
+.banner {
+    background-image: url('path-to-your-translucent-banner-image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em 1em;
+    opacity: 0.9; /* Adjust transparency as needed */
 }
 
-.contact-info {
-    font-family: 'Lexend', sans-serif;
-    font-weight: bold;
+.logo-container img {
+    max-width: 100px; /* Adjust based on your logo's size */
+    padding: 10px;
+}
+
+.nav-container {
+    text-align: right;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Translucent background for the nav container */
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-    display: flex;
+    margin: 0;
 }
 
 nav ul li {
+    display: inline;
     margin-left: 20px;
 }
 
 nav ul li a {
-    color: white;
+    color: #d4d4d4;
     text-decoration: none;
-    font-family: 'Lexend', sans-serif;
     font-weight: bold;
+}
+
+.contact-info {
+    margin-top: 8px;
 }
 
 section {
@@ -42,11 +60,8 @@ section {
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #252526; /* VS Code dark theme footer color */
+    color: #d4d4d4;
     text-align: center;
     padding: 1em 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
