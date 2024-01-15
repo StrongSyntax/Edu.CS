@@ -111,7 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
             "Travis": "Part of Fletcher's band, facing similar pressures as Andrew. His interactions reflect the competitiveness and tension among the students.",
             "Dustin": "Another student in Fletcher's band, often in the background but part of the overall dynamic within the group.",
             "Uncle Frank": "Andrew's uncle, representing the family's more conventional expectations and contrasting with Andrew's intense musical pursuit.",
-            "Mr. Kramer": "The first chair conductor, showcasing another facet of the musical institution and its impact on Andrew's journey."
+            "Mr. Kramer": "The first chair conductor, showcasing another facet of the musical institution and its impact on Andrew's journey.",
+            "Andrew Neiman": "Starts as ambitious and naive, becomes more obsessive and resilient. His journey is marked by a relentless pursuit of perfection in his drumming, often at the cost of personal relationships and mental well-being.",
+            "Terence Fletcher": "Remains consistently harsh and intimidating. A complex character who believes in pushing students to their limits to achieve greatness, showing a mixture of ruthlessness and motivational tactics."
         }
     },
         "Genre": {
