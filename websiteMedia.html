@@ -3,65 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>Your Programming Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="banner">
-            <div class="logo-container">
-                <!-- Your logo here -->
-                <img src="path-to-your-logo.png" alt="Logo">
-            </div>
-            <div class="nav-container">
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#introduction">Introduction</a></li>
-                        <li><a href="#work">Work for Class</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#collage">Collage</a></li>
-                        <li><a href="#peer-review">Peer Review</a></li>
-                    </ul>
-                </nav>
-                <div class="contact-info">
-                    Contact: dylan.g.strong@prs26.ca
-                </div>
-            </div>
+    <div class="top-bar">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#work">Work for Class</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">
+            Contact: <a href="mailto:dylan.g.strong@prs26.ca">dylan.g.strong@prs26.ca</a>
         </div>
-    </header>
-
-    <section id="home">
-        <h1>Welcome to My Portfolio</h1>
-        <p>This website showcases my projects and experiences.</p>
-    </section>
-
-    <section id="introduction">
-        <h2>Introduction of Self</h2>
-        <!-- Add your content here -->
-    </section>
-
-    <section id="work">
-        <h2>Work for this Class</h2>
-        <!-- Add your content here -->
-    </section>
-
-    <section id="blog">
-        <h2>Blog</h2>
-        <!-- Add your content here -->
-    </section>
-
-    <section id="collage">
-        <h2>Collage</h2>
-        <!-- Add your content here -->
-    </section>
-
-    <section id="peer-review">
-        <h2>Peer Review</h2>
-        <!-- Add your content here -->
-    </section>
-
-    <script src="websiteMedia.js"></script>
+    </div>
+    <div class="content">
+        <aside class="sidebar-right">
+            <!-- Links or other content will be added here -->
+            <a href="#introduction">About Me</a><br>
+            <a href="#collage">Collage</a><br>
+            <a href="#peer-review">Peer Review</a>
+        </aside>
+        <main class="main-content">
+            <section id="home">
+                <h1>Welcome to My Portfolio</h1>
+                <p>This website showcases my programming projects and experiences.</p>
+            </section>
+            <section id="work">
+                <h2>Work for this Class</h2>
+                <!-- Work content goes here -->
+            </section>
+            <section id="blog">
+                <h2>Blog</h2>
+                <!-- Blog content goes here -->
+            </section>
+        </main>
+        <footer class="footer-left">
+            <section id="introduction">
+                <h2>About Me</h2>
+                <!-- About me content goes here -->
+            </section>
+            <section id="collage">
+                <h2>Collage</h2>
+                <!-- Collage content goes here -->
+            </section>
+            <section id="peer-review">
+                <h2>Peer Review</h2>
+                <!-- Peer review content goes here -->
+            </section>
+        </footer>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

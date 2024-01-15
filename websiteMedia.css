@@ -1,67 +1,87 @@
-body {
-    font-family: 'Lexend', sans-serif;
-    background-color: #1e1e1e; /* VS Code dark theme background color */
-    color: #d4d4d4; /* VS Code dark theme text color */
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+    background-color: #1e1e1e; /* VS Code dark theme background */
+    color: #d4d4d4; /* VS Code dark theme text color */
+    height: 100%;
 }
 
-header {
-    width: 100%;
+.top-bar {
+    background-color: rgba(0, 0, 0, 0.6); /* Translucent top bar */
     color: white;
-}
-
-.banner {
-    background-image: url('path-to-your-translucent-banner-image.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    opacity: 0.9; /* Adjust transparency as needed */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
-.logo-container img {
-    max-width: 100px; /* Adjust based on your logo's size */
-    padding: 10px;
-}
-
-.nav-container {
-    text-align: right;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Translucent background for the nav container */
-}
-
-nav ul {
+.main-nav ul {
     list-style-type: none;
-    padding: 0;
+    display: flex;
     margin: 0;
+    padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin-left: 20px;
+.main-nav ul li {
+    padding: 0 15px;
 }
 
-nav ul li a {
-    color: #d4d4d4;
+.main-nav ul li a {
+    color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
 .contact-info {
-    margin-top: 8px;
+    font-weight: bold;
 }
 
-section {
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px; /* Give space for the fixed top bar */
+    height: calc(100% - 50px); /* Adjust height considering the top bar */
+}
+
+.sidebar-right {
+    background-color: rgba(0, 0, 0, 0.6); /* Translucent right sidebar */
     padding: 20px;
-    margin: 20px;
+    width: 200px;
+    position: fixed;
+    right: 0;
+    top: 50px; /* Below the top bar */
+    bottom: 0;
+    overflow-y: auto;
 }
 
-footer {
-    background-color: #252526; /* VS Code dark theme footer color */
+.sidebar-right a {
     color: #d4d4d4;
-    text-align: center;
-    padding: 1em 0;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.main-content {
+    margin-right: 200px; /* Space for the sidebar */
+    padding: 20px;
+}
+
+.main-content section {
+    margin-bottom: 40px;
+}
+
+.footer-left {
+    background-color: rgba(0, 0, 0, 0.6); /* Translucent left footer */
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-left section {
+    margin-bottom: 20px;
 }
