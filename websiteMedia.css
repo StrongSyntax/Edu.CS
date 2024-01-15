@@ -1,55 +1,65 @@
-body, html {
+body {
+    background-color: #1E1E1E;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
   }
   
   header {
     background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    color: white;
   }
   
-  nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .logo h1 {
+  nav ul {
+    list-style-type: none;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
   }
   
-  .nav-links {
-    list-style: none;
+  nav ul li {
+    float: left;
   }
   
-  .nav-links li {
-    display: inline;
-    margin-left: 20px;
-  }
-  
-  .nav-links a {
-    color: #fff;
+  nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    font-weight: bold;
   }
   
-  .nav-links a:hover {
-    color: #1089ff;
+  nav ul li a:hover {
+    background-color: #111;
   }
   
-  main {
+  section {
+    margin: 20px;
     padding: 20px;
-  }
-  
-  #portfolio, #blog {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: white;
+    background-color: #2C2C2C; /* Lighter grey for content */
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  article {
+    background-color: #404040; /* Even lighter grey for blog entries */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
   }
   
