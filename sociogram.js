@@ -422,21 +422,29 @@ function createSidebarSectionWithIcons(title, items, iconFolderPath) {
 
     var tooltip = d3.select("#tooltip");
   
-    // Function to show tooltip for nodes
     function showNodeTooltip(event, d) {
-      // Extract personality information
+      let tooltipWidth = 250; // Width of your tooltip
+      let pageWidth = document.documentElement.clientWidth;
+      let tooltipX = event.pageX + 10;
+      let tooltipY = event.pageY - 10;
+    
+      // Check if the tooltip would go off the right edge of the page
+      if (tooltipX + tooltipWidth > pageWidth) {
+        tooltipX = pageWidth - tooltipWidth - 10; // Adjust X position to fit in the page
+      }
+    
       let personalityInfo = data.CharacterDevelopment.MainCharacters[d.id] || 
-                            data.CharacterDevelopment.SupportingCharacters[d.id] || 
-                            "Personality details not available";
-  
-      // Format connections information as list items
+        data.CharacterDevelopment.SupportingCharacters[d.id] || 
+        "Personality details not available";
+    
       let connectionsInfo = "<ul>" + d.connections.map(c => `<li>${c.name} (${c.details})</li>`).join('') + "</ul>";
-  
+    
       tooltip.html(`<strong>${d.id}</strong><br/>Personality: ${personalityInfo}<br/>Connections: ${connectionsInfo}`)
-          .style("left", (event.pageX + 10) + "px")
-          .style("top", (event.pageY - 10) + "px")
-          .style("visibility", "visible");
-  }
+        .style("left", `${tooltipX}px`)
+        .style("top", `${tooltipY}px`)
+        .style("visibility", "visible");
+    }
+    
     // Add tooltip functionality to nodes
     node.on("mouseover", showNodeTooltip)
       .on("mouseout", function() {
