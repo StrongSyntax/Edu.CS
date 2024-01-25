@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: white;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quizContainer {
+    text-align: center;
+}
+
+button {
+    display: block;
+    margin: 5px auto;
+}
+
+#scoreContainer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}

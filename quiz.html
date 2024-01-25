@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Guide Quiz</title>
+    <link rel="stylesheet" type="text/css" href="quiz.css">
+</head>
+<body>
+    <div id="quizContainer">
+        <div id="question"></div>
+        <input type="text" id="userAnswer">
+        <button onclick="showAnswer()">Submit Answer</button>
+        <div id="correctAnswer"></div>
+        <button onclick="updateScore(1)">Yes</button>
+        <button onclick="updateScore(0.5)">Sort Of</button>
+        <button onclick="updateScore(0)">No</button>
+        <div id="finalScore"></div>
+    </div>
+    <div id="scoreContainer">Your Score: <span id="score">0</span></div>
+    <script src="quiz.js"></script>
+</body>
+</html>
