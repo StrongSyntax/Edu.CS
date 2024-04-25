@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     background-color: #000000; /* Set background color */
 }
 
@@ -33,7 +33,7 @@ svg {
 }
 
 .tooltip {
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     position: absolute;
     background-color: #1e1e1e; /* Dark background */
     color: white; /* White text */
@@ -42,7 +42,7 @@ svg {
     pointer-events: none;
     z-index: 10;
     white-space: normal;
-    font-family: 'Lexend', sans-serif; /* Use Lexend font */
+    font-family: 'Fira Sans', sans-serif; /* Use Fira Sans font */
     font-size: 14px; /* Adjust font size as needed */
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Soft white glow */
     max-width: 250px; /* Set a max-width for the tooltip */
@@ -50,7 +50,7 @@ svg {
 }
 
 #sidebar {
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     position: fixed;
     right: 0;
     top: 0;
@@ -70,7 +70,7 @@ svg {
     color: white;
     text-align: center;
     line-height: 50px; /* Center the text vertically */
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     font-size: 24px; /* Adjust font size as needed */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     z-index: 1000; /* Ensure it's above other elements */
@@ -160,12 +160,12 @@ svg {
 }
 
 .dropdown-btn {
-    font-family: 'Lexend Bold', sans-serif;
+    font-family: 'Fira Sans Bold', sans-serif;
     font-size: 1.2rem; /* Adjust the size as needed */
     border-radius: 5px; /* Rounded corners for the buttons */
 }
 
 .dropdown-content p,
 .dropdown-content li {
-    font-family: 'Lexend Regular', sans-serif; /* Assuming 'Lexend Regular' is available on your system */
+    font-family: 'Fira Sans Regular', sans-serif; /* Assuming 'Fira Sans Regular' is available on your system */
 }
