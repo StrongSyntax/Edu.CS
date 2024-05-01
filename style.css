@@ -1,5 +1,5 @@
 body {
-    font-family: 'Lexend', sans-serif; /* Use Lexend as the primary font */
+    font-family: 'Fira Sans', sans-serif; /* Use Fira Sans as the primary font */
     background-color: #1e1e1e; /* Dark background similar to VS Code */
     color: #d4d4d4; /* Light grey text color for contrast */
 }
@@ -25,7 +25,7 @@ body {
     border: 1px solid #3c3c3c; /* Slightly lighter border for visibility */
     overflow: hidden;
     color: white; /* Set the text color to white */
-    font-weight: 700; /* Lexend Bold */
+    font-weight: 700; /* Fira Sans Bold */
     filter: grayscale(100%); /* Start with the item in grayscale */
     transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease; /* Include filter in the transition */
     border-radius: 20px; /* This will give you rounded corners */
@@ -68,8 +68,8 @@ body {
 .about-me p {
     margin: 0;
     color: white; /* Set the text color to white */
-    font-family: 'Lexend', sans-serif; /* Use Lexend for the text */
-    font-weight: 700; /* Lexend Bold */
+    font-family: 'Fira Sans', sans-serif; /* Use Fira Sans for the text */
+    font-weight: 700; /* Fira Sans Bold */
 }
 
 .question-mark:hover ~ .about-me {
